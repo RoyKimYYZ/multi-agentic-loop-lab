@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+.mypy_cache/
+.ruff_cache/
+dist/
+*.egg-info/
+
+# Node
+node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Env
+.env
+.env.*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git worktrees (sibling directories)
+# nothing to ignore here — worktrees live outside the repo root

@@ -1,5 +1,5 @@
 ---
-description: "Template for a feature design artifact. Produced by the Designer agent. Read by Slice agents and the Orchestrator."
+description: "Template for a feature design artifact. Produced by the Designer agent. Read by Implementer agents and the Orchestrator."
 name: "Feature Design Template"
 agent: "ask"
 ---

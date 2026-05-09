@@ -134,21 +134,21 @@ This project uses a three-tier agent system. Each tier has a specific role and c
 User
  └── Orchestrator  — plans work, sets up worktrees, coordinates slices
       ├── Designer  — reads codebase, designs feature (UI + API + logic + data)
-      └── Slice (×N) — implements one vertical slice end-to-end
+      └── Implementer (×N) — implements one vertical slice end-to-end
 ```
 
 | Agent | File | Invokes | Does NOT |
 |---|---|---|---|
-| Orchestrator | `.github/agents/orchestrator.agent.md` | Designer, Slice | Write code |
+| Orchestrator | `.github/agents/orchestrator.agent.md` | Designer, Implementer | Write code |
 | Designer | `.github/agents/designer.agent.md` | — | Write code |
-| Slice | `.github/agents/slice.agent.md` | — | Touch other slices |
+| Implementer | `.github/agents/implementer.agent.md` | — | Touch other slices |
 
 ### How to Use
 
 1. Open Copilot Chat → switch to **Agent** mode → select **Orchestrator**
 2. Describe the feature: `"I want to add comments to posts"`
 3. The Orchestrator delegates to the Designer, then creates worktree + branch + task file per slice
-4. Open a new VS Code window per slice worktree → run the **Slice** agent with the task file
+4. Open a new VS Code window per slice worktree → run the **Implementer** agent with the task file
 
 ### Design Artifacts
 

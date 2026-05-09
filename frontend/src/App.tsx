@@ -1,22 +1,19 @@
-import { useEffect, useState } from 'react'
-import { listPosts, type Post } from './api/posts'
-import { PostList } from './components/PostList'
+import { Routes, Route } from 'react-router-dom'
+import { HomePage } from './pages/HomePage'
+import { PostDetailPage } from './pages/PostDetailPage'
 import './App.css'
 
 function App() {
-  const [posts, setPosts] = useState<Post[]>([])
-
-  useEffect(() => {
-    listPosts().then(setPosts).catch(console.error)
-  }, [])
-
   return (
     <>
       <header>
         <h1>Blog</h1>
       </header>
       <main>
-        <PostList posts={posts} />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/posts/:id" element={<PostDetailPage />} />
+        </Routes>
       </main>
     </>
   )

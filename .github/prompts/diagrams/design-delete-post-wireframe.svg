@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="560" font-family="monospace" font-size="13" fill="#333">
+  <rect width="600" height="560" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="300" y="22" text-anchor="middle" font-size="15" font-weight="bold" fill="#111">UI Wireframe - Delete Post</text>
+
+  <!-- ======================================================== -->
+  <!-- SECTION A: HomePage / PostList                            -->
+  <!-- ======================================================== -->
+  <text x="20" y="44" font-size="11" font-weight="bold" fill="#555">Section A -- HomePage / PostList (modified)</text>
+
+  <!-- Blog header (unchanged) -->
+  <rect x="20" y="52" width="560" height="38" fill="#f5f5f5" stroke="#999" rx="4"/>
+  <text x="300" y="77" text-anchor="middle" font-size="14" font-weight="bold" fill="#555">Blog</text>
+
+  <!-- Post item 1 -->
+  <rect x="20" y="98" width="560" height="52" fill="#f5f5f5" stroke="#ccc" rx="4"/>
+  <text x="32" y="118" font-size="13" fill="#1565c0">Hello, Parallel Agents!</text>
+  <text x="32" y="138" font-size="11" fill="#777">by coach</text>
+  <!-- Delete button (NEW) -->
+  <rect x="490" y="108" width="72" height="26" fill="#e8f4fd" stroke="#2196f3" rx="4"/>
+  <text x="526" y="126" text-anchor="middle" font-size="12" font-weight="bold" fill="#1565c0">Delete</text>
+
+  <!-- Post item 2 -->
+  <rect x="20" y="158" width="560" height="52" fill="#f5f5f5" stroke="#ccc" rx="4"/>
+  <text x="32" y="178" font-size="13" fill="#1565c0">Another Post Title</text>
+  <text x="32" y="198" font-size="11" fill="#777">by author</text>
+  <!-- Delete button (NEW) -->
+  <rect x="490" y="168" width="72" height="26" fill="#e8f4fd" stroke="#2196f3" rx="4"/>
+  <text x="526" y="186" text-anchor="middle" font-size="12" font-weight="bold" fill="#1565c0">Delete</text>
+
+  <text x="412" y="228" font-size="10" fill="#2196f3">^ new per list item</text>
+
+  <!-- ======================================================== -->
+  <!-- SECTION B: Confirm Dialog                                 -->
+  <!-- ======================================================== -->
+  <text x="20" y="250" font-size="11" font-weight="bold" fill="#555">Section B -- window.confirm() dialog (browser native)</text>
+
+  <rect x="150" y="258" width="300" height="90" fill="#e8f4fd" stroke="#2196f3" rx="4"/>
+  <text x="300" y="278" text-anchor="middle" font-size="12" font-weight="bold" fill="#333">Confirm</text>
+  <line x1="150" y1="285" x2="450" y2="285" stroke="#ccc"/>
+  <text x="300" y="308" text-anchor="middle" font-size="12" fill="#555">Delete this post?</text>
+  <!-- OK button -->
+  <rect x="175" y="316" width="70" height="24" fill="#1976d2" rx="3"/>
+  <text x="210" y="333" text-anchor="middle" fill="#fff" font-size="12">OK</text>
+  <!-- Cancel button -->
+  <rect x="355" y="316" width="80" height="24" fill="#f5f5f5" stroke="#999" rx="3"/>
+  <text x="395" y="333" text-anchor="middle" font-size="12" fill="#555">Cancel</text>
+
+  <!-- ======================================================== -->
+  <!-- SECTION C: PostDetailPage                                 -->
+  <!-- ======================================================== -->
+  <text x="20" y="370" font-size="11" font-weight="bold" fill="#555">Section C -- PostDetailPage (modified)</text>
+
+  <rect x="20" y="378" width="560" height="122" fill="#f5f5f5" stroke="#ccc" rx="4"/>
+  <text x="32" y="398" font-size="11" fill="#1565c0">Back to posts</text>
+  <text x="32" y="420" font-size="14" font-weight="bold" fill="#333">Hello, Parallel Agents!</text>
+  <text x="32" y="438" font-size="12" fill="#555">This blog is built to learn accelerated development...</text>
+  <text x="32" y="454" font-size="11" fill="#777">by coach</text>
+  <!-- Delete button (NEW) -->
+  <rect x="32" y="464" width="72" height="24" fill="#e8f4fd" stroke="#2196f3" rx="4"/>
+  <text x="68" y="481" text-anchor="middle" font-size="12" font-weight="bold" fill="#1565c0">Delete</text>
+  <text x="116" y="481" font-size="10" fill="#2196f3">navigates to / on success</text>
+
+  <!-- ======================================================== -->
+  <!-- LEGEND                                                    -->
+  <!-- ======================================================== -->
+  <rect x="20" y="518" width="14" height="14" fill="#e8f4fd" stroke="#2196f3"/>
+  <text x="40" y="529" font-size="11" fill="#555">New / changed</text>
+  <rect x="170" y="518" width="14" height="14" fill="#f5f5f5" stroke="#999"/>
+  <text x="190" y="529" font-size="11" fill="#555">Unchanged</text>
+  <rect x="310" y="518" width="14" height="14" fill="#1976d2" rx="2"/>
+  <text x="330" y="529" font-size="11" fill="#555">Action button</text>
+
+</svg>

@@ -24,3 +24,4 @@ Thumbs.db
 # Git worktrees (sibling directories)
 # nothing to ignore here — worktrees live outside the repo root
 .runbook.pids
+.runbook.pids

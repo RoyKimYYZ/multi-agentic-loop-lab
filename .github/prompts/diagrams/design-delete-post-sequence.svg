@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="480" font-family="monospace" font-size="12" fill="#333">
+  <defs>
+    <!-- Forward arrow (dark) -->
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#333"/>
+    </marker>
+    <!-- Return arrow (grey) -->
+    <marker id="arr-ret" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#888"/>
+    </marker>
+  </defs>
+
+  <rect width="700" height="480" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="350" y="20" text-anchor="middle" font-size="14" font-weight="bold" fill="#111">Sequence Diagram - Delete Post (PostList flow)</text>
+
+  <!-- ======================================================== -->
+  <!-- Actor boxes  (centers at x: 70, 210, 350, 490, 630)      -->
+  <!-- ======================================================== -->
+  <rect x="20"  y="36" width="100" height="28" fill="#e3f2fd" stroke="#1976d2" rx="4"/>
+  <text x="70"  y="55" text-anchor="middle" font-size="11" font-weight="bold" fill="#1565c0">User</text>
+
+  <rect x="160" y="36" width="100" height="28" fill="#e3f2fd" stroke="#1976d2" rx="4"/>
+  <text x="210" y="55" text-anchor="middle" font-size="11" font-weight="bold" fill="#1565c0">PostList</text>
+
+  <rect x="300" y="36" width="100" height="28" fill="#e3f2fd" stroke="#1976d2" rx="4"/>
+  <text x="350" y="55" text-anchor="middle" font-size="11" font-weight="bold" fill="#1565c0">HomePage</text>
+
+  <rect x="440" y="36" width="100" height="28" fill="#e3f2fd" stroke="#1976d2" rx="4"/>
+  <text x="490" y="55" text-anchor="middle" font-size="11" font-weight="bold" fill="#1565c0">posts.ts</text>
+
+  <rect x="580" y="36" width="100" height="28" fill="#e3f2fd" stroke="#1976d2" rx="4"/>
+  <text x="630" y="55" text-anchor="middle" font-size="11" font-weight="bold" fill="#1565c0">Backend</text>
+
+  <!-- ======================================================== -->
+  <!-- Lifelines                                                 -->
+  <!-- ======================================================== -->
+  <line x1="70"  y1="64" x2="70"  y2="448" stroke="#999" stroke-dasharray="4"/>
+  <line x1="210" y1="64" x2="210" y2="448" stroke="#999" stroke-dasharray="4"/>
+  <line x1="350" y1="64" x2="350" y2="448" stroke="#999" stroke-dasharray="4"/>
+  <line x1="490" y1="64" x2="490" y2="448" stroke="#999" stroke-dasharray="4"/>
+  <line x1="630" y1="64" x2="630" y2="448" stroke="#999" stroke-dasharray="4"/>
+
+  <!-- ======================================================== -->
+  <!-- Messages                                                  -->
+  <!-- ======================================================== -->
+
+  <!-- 1. User -> PostList: click Delete -->
+  <line x1="70" y1="95" x2="210" y2="95" stroke="#333" marker-end="url(#arr)"/>
+  <text x="140" y="89" text-anchor="middle" font-size="10" fill="#333">click Delete</text>
+
+  <!-- 2. PostList self-loop: window.confirm() -->
+  <line x1="210" y1="120" x2="250" y2="120" stroke="#333"/>
+  <line x1="250" y1="120" x2="250" y2="145" stroke="#333"/>
+  <line x1="250" y1="145" x2="210" y2="145" stroke="#333" marker-end="url(#arr)"/>
+  <text x="258" y="136" font-size="10" fill="#333">window.confirm()</text>
+
+  <!-- 3. User -> PostList: confirms OK -->
+  <line x1="70" y1="175" x2="210" y2="175" stroke="#333" marker-end="url(#arr)"/>
+  <text x="140" y="169" text-anchor="middle" font-size="10" fill="#333">confirms OK</text>
+
+  <!-- 4. PostList -> HomePage: onDelete(id) -->
+  <line x1="210" y1="210" x2="350" y2="210" stroke="#333" marker-end="url(#arr)"/>
+  <text x="280" y="204" text-anchor="middle" font-size="10" fill="#333">onDelete(id)</text>
+
+  <!-- 5. HomePage -> posts.ts: deletePost(id) -->
+  <line x1="350" y1="245" x2="490" y2="245" stroke="#333" marker-end="url(#arr)"/>
+  <text x="420" y="239" text-anchor="middle" font-size="10" fill="#333">deletePost(id)</text>
+
+  <!-- 6. posts.ts -> Backend: DELETE /api/posts/{id} -->
+  <line x1="490" y1="280" x2="630" y2="280" stroke="#333" marker-end="url(#arr)"/>
+  <text x="560" y="274" text-anchor="middle" font-size="10" fill="#333">DELETE /api/posts/{id}</text>
+
+  <!-- 7. Backend -> posts.ts: 204 No Content (return) -->
+  <line x1="630" y1="315" x2="490" y2="315" stroke="#888" stroke-dasharray="5" marker-end="url(#arr-ret)"/>
+  <text x="560" y="309" text-anchor="middle" font-size="10" fill="#888">204 No Content</text>
+
+  <!-- 8. posts.ts -> HomePage: resolves void (return) -->
+  <line x1="490" y1="350" x2="350" y2="350" stroke="#888" stroke-dasharray="5" marker-end="url(#arr-ret)"/>
+  <text x="420" y="344" text-anchor="middle" font-size="10" fill="#888">resolves void</text>
+
+  <!-- 9. HomePage self-loop: setPosts(filter out id) -->
+  <line x1="350" y1="385" x2="400" y2="385" stroke="#333"/>
+  <line x1="400" y1="385" x2="400" y2="410" stroke="#333"/>
+  <line x1="400" y1="410" x2="350" y2="410" stroke="#333" marker-end="url(#arr)"/>
+  <text x="406" y="400" font-size="10" fill="#333">setPosts(filter out id)</text>
+
+  <!-- 10. HomePage -> PostList: posts prop updated (return) -->
+  <line x1="350" y1="440" x2="210" y2="440" stroke="#888" stroke-dasharray="5" marker-end="url(#arr-ret)"/>
+  <text x="280" y="434" text-anchor="middle" font-size="10" fill="#888">posts prop re-renders list</text>
+
+  <!-- ======================================================== -->
+  <!-- Legend                                                    -->
+  <!-- ======================================================== -->
+  <line x1="20" y1="462" x2="55" y2="462" stroke="#333" marker-end="url(#arr)"/>
+  <text x="62" y="466" font-size="10" fill="#555">call / action</text>
+  <line x1="170" y1="462" x2="205" y2="462" stroke="#888" stroke-dasharray="5" marker-end="url(#arr-ret)"/>
+  <text x="212" y="466" font-size="10" fill="#555">return / data flow</text>
+
+</svg>

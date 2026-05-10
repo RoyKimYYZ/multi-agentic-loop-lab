@@ -8,6 +8,7 @@ A simple blog application built to learn **accelerated development with parallel
 - View a single post on its own detail page
 - Create a new post via a form
 - Delete a post from the list or detail page
+- Edit a post's title and content inline on its detail page
 
 ## Tech Stack
 
@@ -131,3 +132,4 @@ Each feature is split into independent **slices**, each on its own Git worktree 
 | View post (detail page) | `feat/view-post-ui` | 1 frontend |
 | Create post (form) | `feat/create-post-form-ui` | 1 frontend |
 | Delete post | `feat/delete-post-api` + `feat/delete-post-ui` | 1 backend (tests) + 1 frontend |
+| Edit post | `feat/edit-post-api` + `feat/edit-post-ui` | 1 backend (tests) + 1 frontend |

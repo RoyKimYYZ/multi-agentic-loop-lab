@@ -1,6 +1,6 @@
 # Implementation Plan: Edit Post
 
-**Status:** In Progress
+**Status:** Merged ✅
 **Design artifact:** [design-edit-post.prompt.md](../../.github/prompts/design-edit-post.prompt.md)
 
 ---

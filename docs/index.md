@@ -21,9 +21,11 @@ Welcome to the project wiki. Use the links below to navigate.
 - [View Post](./features/view-post.md)
 - [Create Post](./features/create-post.md)
 - [Delete Post](./features/delete-post.md)
+- [Edit Post](./features/edit-post.md)
 
 ### Implementation Plans *(created before coding, updated to Merged after)*
 - [Delete Post Plan](./features/delete-post-plan.md)
+- [Edit Post Plan](./features/edit-post-plan.md)
 
 ---
 

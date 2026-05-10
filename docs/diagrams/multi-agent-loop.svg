@@ -1,0 +1,182 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 980" role="img" aria-labelledby="title desc">
+  <title id="title">Multi-agent loop for the software development lifecycle</title>
+  <desc id="desc">A workflow diagram showing Request, Design, Plan, Worktrees, Parallel Build, Gate, Docs, and Merge, with Orchestrator, Designer, and Implementer roles across the loop.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d1117" />
+      <stop offset="100%" stop-color="#111827" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#7c3aed" />
+      <stop offset="100%" stop-color="#8b5cf6" />
+    </linearGradient>
+    <linearGradient id="softAccent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6d28d9" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.06" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#020617" flood-opacity="0.45" />
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8" />
+    </marker>
+    <marker id="arrowAccent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8b5cf6" />
+    </marker>
+    <style>
+      .bg { fill: url(#bg); }
+      .panel { fill: rgba(15, 23, 42, 0.94); stroke: rgba(148, 163, 184, 0.18); stroke-width: 1.5; }
+      .card { fill: #111827; stroke: rgba(148, 163, 184, 0.18); stroke-width: 1.5; filter: url(#shadow); }
+      .stage { fill: rgba(17, 24, 39, 0.92); stroke: rgba(139, 92, 246, 0.32); stroke-width: 1.5; }
+      .lane { fill: rgba(15, 23, 42, 0.82); stroke: rgba(148, 163, 184, 0.14); stroke-width: 1.25; }
+      .accentBar { fill: url(#accent); }
+      .softAccent { fill: url(#softAccent); }
+      .title { fill: #f8fafc; font: 700 34px 'Inter', 'Segoe UI', sans-serif; letter-spacing: -0.02em; }
+      .subtitle { fill: #cbd5e1; font: 500 16px 'Inter', 'Segoe UI', sans-serif; }
+      .label { fill: #e2e8f0; font: 600 18px 'Inter', 'Segoe UI', sans-serif; }
+      .small { fill: #94a3b8; font: 500 14px 'Inter', 'Segoe UI', sans-serif; }
+      .role { fill: #f8fafc; font: 700 18px 'Inter', 'Segoe UI', sans-serif; }
+      .roleSub { fill: #cbd5e1; font: 500 14px 'Inter', 'Segoe UI', sans-serif; }
+      .stepNum { fill: #8b5cf6; font: 700 14px 'Inter', 'Segoe UI', sans-serif; letter-spacing: 0.08em; text-transform: uppercase; }
+      .stepText { fill: #f8fafc; font: 600 17px 'Inter', 'Segoe UI', sans-serif; }
+      .stepDesc { fill: #94a3b8; font: 500 13px 'Inter', 'Segoe UI', sans-serif; }
+      .arrow { stroke: #94a3b8; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .arrowAccent { stroke: #8b5cf6; stroke-width: 3.25; fill: none; marker-end: url(#arrowAccent); }
+      .dashed { stroke-dasharray: 10 8; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1440" height="980" rx="0" />
+  <rect class="softAccent" x="92" y="74" width="1256" height="832" rx="36" />
+
+  <text class="title" x="72" y="82">Multi-agent loop for the software development lifecycle</text>
+  <text class="subtitle" x="72" y="112">A single user request becomes a design artifact, a slice plan, isolated worktrees, parallel implementation, validation, docs, and merge.</text>
+
+  <rect class="panel" x="60" y="148" width="1320" height="196" rx="28" />
+  <text class="label" x="92" y="190">Roles in the loop</text>
+  <text class="small" x="92" y="216">The Orchestrator coordinates the loop; the Designer writes the contract; Implementers build in parallel slices.</text>
+
+  <rect class="card" x="96" y="238" width="330" height="74" rx="18" />
+  <rect class="accentBar" x="96" y="238" width="330" height="8" rx="18" />
+  <text class="role" x="122" y="270">User</text>
+  <text class="roleSub" x="122" y="292">Starts the request and confirms the result.</text>
+
+  <rect class="card" x="514" y="226" width="386" height="98" rx="18" />
+  <rect class="accentBar" x="514" y="226" width="386" height="8" rx="18" />
+  <text class="role" x="540" y="258">Orchestrator</text>
+  <text class="roleSub" x="540" y="280">Plans the work, splits slices, opens worktrees, and gates merges.</text>
+
+  <rect class="card" x="948" y="226" width="396" height="98" rx="18" />
+  <rect class="accentBar" x="948" y="226" width="396" height="8" rx="18" />
+  <text class="role" x="974" y="258">Designer</text>
+  <text class="roleSub" x="974" y="280">Defines the API, UI, and data contract before code starts.</text>
+
+  <path class="arrowAccent" d="M 426 275 L 514 275" />
+  <path class="arrowAccent" d="M 900 275 L 948 275" />
+  <path class="arrow" d="M 694 324 L 694 366" />
+
+  <rect class="stage" x="60" y="370" width="1320" height="540" rx="28" />
+  <text class="label" x="92" y="414">Lifecycle steps</text>
+  <text class="small" x="92" y="438">Each step is a small contract boundary. Work stays isolated until validation is complete.</text>
+
+  <g transform="translate(88 468)">
+    <rect class="card" x="0" y="0" width="156" height="106" rx="18" />
+    <rect class="accentBar" x="0" y="0" width="156" height="8" rx="18" />
+    <text class="stepNum" x="20" y="32">Step 1</text>
+    <text class="stepText" x="20" y="58">Request</text>
+    <text class="stepDesc" x="20" y="82">User asks for a feature.</text>
+  </g>
+
+  <g transform="translate(276 468)">
+    <rect class="card" x="0" y="0" width="156" height="106" rx="18" />
+    <rect class="accentBar" x="0" y="0" width="156" height="8" rx="18" />
+    <text class="stepNum" x="20" y="32">Step 2</text>
+    <text class="stepText" x="20" y="58">Design</text>
+    <text class="stepDesc" x="20" y="82">Designer writes the contract.</text>
+  </g>
+
+  <g transform="translate(464 468)">
+    <rect class="card" x="0" y="0" width="156" height="106" rx="18" />
+    <rect class="accentBar" x="0" y="0" width="156" height="8" rx="18" />
+    <text class="stepNum" x="20" y="32">Step 3</text>
+    <text class="stepText" x="20" y="58">Plan</text>
+    <text class="stepDesc" x="20" y="82">Orchestrator splits slices.</text>
+  </g>
+
+  <g transform="translate(652 468)">
+    <rect class="card" x="0" y="0" width="156" height="106" rx="18" />
+    <rect class="accentBar" x="0" y="0" width="156" height="8" rx="18" />
+    <text class="stepNum" x="20" y="32">Step 4</text>
+    <text class="stepText" x="20" y="58">Worktrees</text>
+    <text class="stepDesc" x="20" y="82">One branch per slice.</text>
+  </g>
+
+  <g transform="translate(840 468)">
+    <rect class="card" x="0" y="0" width="156" height="106" rx="18" />
+    <rect class="accentBar" x="0" y="0" width="156" height="8" rx="18" />
+    <text class="stepNum" x="20" y="32">Step 5</text>
+    <text class="stepText" x="20" y="58">Parallel Build</text>
+    <text class="stepDesc" x="20" y="82">Implementers work independently.</text>
+  </g>
+
+  <g transform="translate(1028 468)">
+    <rect class="card" x="0" y="0" width="156" height="106" rx="18" />
+    <rect class="accentBar" x="0" y="0" width="156" height="8" rx="18" />
+    <text class="stepNum" x="20" y="32">Step 6</text>
+    <text class="stepText" x="20" y="58">Gate</text>
+    <text class="stepDesc" x="20" y="82">Build, lint, test, smoke.</text>
+  </g>
+
+  <g transform="translate(276 626)">
+    <rect class="card" x="0" y="0" width="156" height="106" rx="18" />
+    <rect class="accentBar" x="0" y="0" width="156" height="8" rx="18" />
+    <text class="stepNum" x="20" y="32">Step 7</text>
+    <text class="stepText" x="20" y="58">Docs</text>
+    <text class="stepDesc" x="20" y="82">README and docs update.</text>
+  </g>
+
+  <g transform="translate(464 626)">
+    <rect class="card" x="0" y="0" width="156" height="106" rx="18" />
+    <rect class="accentBar" x="0" y="0" width="156" height="8" rx="18" />
+    <text class="stepNum" x="20" y="32">Step 8</text>
+    <text class="stepText" x="20" y="58">Merge</text>
+    <text class="stepDesc" x="20" y="82">Slice lands on main.</text>
+  </g>
+
+  <g transform="translate(652 626)">
+    <rect class="card" x="0" y="0" width="344" height="106" rx="18" />
+    <rect class="accentBar" x="0" y="0" width="344" height="8" rx="18" />
+    <text class="stepNum" x="20" y="32">Step 9</text>
+    <text class="stepText" x="20" y="58">Repeat the loop for the next request</text>
+    <text class="stepDesc" x="20" y="82">The next feature starts with a new design artifact and new slices.</text>
+  </g>
+
+  <path class="arrow" d="M 244 521 L 276 521" />
+  <path class="arrow" d="M 432 521 L 464 521" />
+  <path class="arrow" d="M 620 521 L 652 521" />
+  <path class="arrow" d="M 808 521 L 840 521" />
+  <path class="arrow" d="M 996 521 L 1028 521" />
+  <path class="arrow" d="M 1184 521 L 1212 521 L 1212 628 L 432 628" />
+  <path class="arrowAccent dashed" d="M 432 680 L 464 680" />
+  <path class="arrowAccent dashed" d="M 620 680 L 652 680" />
+
+  <g transform="translate(748 752)">
+    <rect class="lane" x="0" y="0" width="540" height="120" rx="18" />
+    <text class="label" x="20" y="34">Parallel implementer lanes</text>
+    <text class="small" x="20" y="58">Each Implementer owns a slice, writes in its own worktree, and avoids touching another slice's files.</text>
+    <rect class="card" x="20" y="72" width="240" height="32" rx="12" />
+    <rect class="card" x="280" y="72" width="240" height="32" rx="12" />
+    <text class="small" x="34" y="93">Implementer A: backend slice</text>
+    <text class="small" x="294" y="93">Implementer B: frontend slice</text>
+  </g>
+
+  <g transform="translate(92 752)">
+    <rect class="lane" x="0" y="0" width="620" height="120" rx="18" />
+    <text class="label" x="20" y="34">Gate and docs</text>
+    <text class="small" x="20" y="58">Automated checks verify the slice before merge. Then the docs are updated to keep the teaching loop visible.</text>
+    <rect class="card" x="20" y="72" width="260" height="32" rx="12" />
+    <rect class="card" x="300" y="72" width="280" height="32" rx="12" />
+    <text class="small" x="34" y="93">Build, lint, tests, smoke test</text>
+    <text class="small" x="314" y="93">README + docs update</text>
+  </g>
+</svg>

@@ -1,0 +1,184 @@
+<svg width="920" height="860" viewBox="0 0 920 860" xmlns="http://www.w3.org/2000/svg">
+  <rect width="920" height="860" fill="#fff"/>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- SECTION 1: Desktop Home                            -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <text x="20" y="20" font-family="monospace" font-size="12" fill="#333">① Desktop Home — full viewport, card grid</text>
+
+  <!-- Screen shell -->
+  <rect x="10" y="28" width="900" height="310" fill="#0d0f14" rx="10" stroke="#aaa" stroke-width="1"/>
+
+  <!-- TopNav (NEW — blue) -->
+  <rect x="10" y="28" width="900" height="52" fill="#13161e" rx="10"/>
+  <rect x="10" y="62" width="900" height="18" fill="#13161e"/>
+  <line x1="10" y1="80" x2="910" y2="80" stroke="#ffffff18" stroke-width="1"/>
+  <!-- Logo -->
+  <text x="36" y="60" font-family="monospace" font-size="16" font-weight="700" fill="#8b5cf6">◈ Blog</text>
+  <!-- New Post button (accent) -->
+  <rect x="764" y="42" width="116" height="28" fill="#7c3aed" rx="14"/>
+  <text x="822" y="61" font-family="monospace" font-size="11" fill="#fff" text-anchor="middle">+ New Post</text>
+  <!-- Blue callout: TopNav is new -->
+  <rect x="10" y="28" width="900" height="52" fill="none" stroke="#2196f3" stroke-width="2" rx="10"/>
+
+  <!-- Card grid: 3 columns, 2 rows -->
+  <!-- Row 1 -->
+  <rect x="18"  y="90" width="280" height="108" fill="#1a1d28" stroke="#ffffff14" stroke-width="1" rx="12"/>
+  <rect x="312" y="90" width="280" height="108" fill="#1a1d28" stroke="#ffffff14" stroke-width="1" rx="12"/>
+  <rect x="606" y="90" width="280" height="108" fill="#1a1d28" stroke="#ffffff14" stroke-width="1" rx="12"/>
+
+  <!-- Card 1 content -->
+  <rect x="18" y="90" width="280" height="3" fill="#8b5cf6" rx="2"/>
+  <text x="30" y="115" font-family="monospace" font-size="12" font-weight="700" fill="#e2e8f0">Getting Started with AI</text>
+  <text x="30" y="132" font-family="monospace" font-size="10" fill="#8b92a9">Modern development requires...</text>
+  <text x="30" y="146" font-family="monospace" font-size="10" fill="#8b92a9">new patterns for the future.</text>
+  <rect x="30" y="158" width="52" height="16" fill="#7c3aed30" rx="8"/>
+  <text x="56" y="170" font-family="monospace" font-size="9" fill="#a78bfa" text-anchor="middle">@alice</text>
+  <text x="180" y="170" font-family="monospace" font-size="9" fill="#555c73">Jan 12, 2026</text>
+  <text x="284" y="170" font-family="monospace" font-size="11" fill="#6b7280" text-anchor="end">✕</text>
+
+  <!-- Card 2 content -->
+  <rect x="312" y="90" width="280" height="3" fill="#8b5cf6" rx="2"/>
+  <text x="324" y="115" font-family="monospace" font-size="12" font-weight="700" fill="#e2e8f0">Design Systems in 2026</text>
+  <text x="324" y="132" font-family="monospace" font-size="10" fill="#8b92a9">Tokens, semantics, and the</text>
+  <text x="324" y="146" font-family="monospace" font-size="10" fill="#8b92a9">future of component libraries.</text>
+  <rect x="324" y="158" width="52" height="16" fill="#7c3aed30" rx="8"/>
+  <text x="350" y="170" font-family="monospace" font-size="9" fill="#a78bfa" text-anchor="middle">@bob</text>
+  <text x="474" y="170" font-family="monospace" font-size="9" fill="#555c73">Jan 10, 2026</text>
+  <text x="578" y="170" font-family="monospace" font-size="11" fill="#6b7280" text-anchor="end">✕</text>
+
+  <!-- Card 3 content -->
+  <rect x="606" y="90" width="280" height="3" fill="#8b5cf6" rx="2"/>
+  <text x="618" y="115" font-family="monospace" font-size="12" font-weight="700" fill="#e2e8f0">The New Web Performance</text>
+  <text x="618" y="132" font-family="monospace" font-size="10" fill="#8b92a9">Why milliseconds still matter</text>
+  <text x="618" y="146" font-family="monospace" font-size="10" fill="#8b92a9">in a saturated market.</text>
+  <rect x="618" y="158" width="52" height="16" fill="#7c3aed30" rx="8"/>
+  <text x="644" y="170" font-family="monospace" font-size="9" fill="#a78bfa" text-anchor="middle">@carol</text>
+  <text x="768" y="170" font-family="monospace" font-size="9" fill="#555c73">Jan 8, 2026</text>
+  <text x="872" y="170" font-family="monospace" font-size="11" fill="#6b7280" text-anchor="end">✕</text>
+
+  <!-- Row 2 (partial) -->
+  <rect x="18"  y="210" width="280" height="108" fill="#1a1d28" stroke="#ffffff14" stroke-width="1" rx="12"/>
+  <rect x="312" y="210" width="280" height="108" fill="#1a1d28" stroke="#ffffff14" stroke-width="1" rx="12"/>
+  <rect x="606" y="210" width="280" height="108" fill="#1a1d28" stroke="#ffffff14" stroke-width="1" rx="12"/>
+  <rect x="18"  y="210" width="280" height="3" fill="#8b5cf6" rx="2"/>
+  <rect x="312" y="210" width="280" height="3" fill="#8b5cf6" rx="2"/>
+  <rect x="606" y="210" width="280" height="3" fill="#8b5cf6" rx="2"/>
+  <text x="30"  y="232" font-family="monospace" font-size="12" font-weight="700" fill="#e2e8f0">TypeScript Tips</text>
+  <text x="324" y="232" font-family="monospace" font-size="12" font-weight="700" fill="#e2e8f0">Remix vs Next.js</text>
+  <text x="618" y="232" font-family="monospace" font-size="12" font-weight="700" fill="#e2e8f0">CSS Container Queries</text>
+
+  <!-- Blue border on cards (new) -->
+  <rect x="18" y="90" width="280" height="108" fill="none" stroke="#2196f3" stroke-width="1.5" rx="12"/>
+  <rect x="312" y="90" width="280" height="108" fill="none" stroke="#2196f3" stroke-width="1.5" rx="12"/>
+  <rect x="606" y="90" width="280" height="108" fill="none" stroke="#2196f3" stroke-width="1.5" rx="12"/>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- SECTION 2: New Post Modal (bottom-left)            -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <text x="10" y="360" font-family="monospace" font-size="12" fill="#333">② New Post Modal — triggered by "New Post" nav button</text>
+
+  <!-- Screen shell (behind modal) -->
+  <rect x="10" y="368" width="440" height="460" fill="#0d0f14" rx="10" stroke="#aaa"/>
+
+  <!-- Mini TopNav -->
+  <rect x="10" y="368" width="440" height="42" fill="#13161e" rx="10"/>
+  <rect x="10" y="395" width="440" height="15" fill="#13161e"/>
+  <text x="28" y="394" font-family="monospace" font-size="12" font-weight="700" fill="#8b5cf6">◈ Blog</text>
+  <rect x="332" y="377" width="94" height="22" fill="#7c3aed" rx="11"/>
+  <text x="379" y="393" font-family="monospace" font-size="10" fill="#fff" text-anchor="middle">+ New Post</text>
+
+  <!-- Backdrop overlay -->
+  <rect x="10" y="410" width="440" height="418" fill="#000000" fill-opacity="0.75" rx="0"/>
+
+  <!-- Modal dialog (NEW — blue highlight) -->
+  <rect x="60" y="430" width="340" height="370" fill="#1a1d28" stroke="#7c3aed" stroke-width="1.5" rx="20"/>
+  <rect x="60" y="430" width="340" height="370" fill="none" stroke="#2196f3" stroke-width="2" rx="20"/>
+
+  <!-- Modal header -->
+  <text x="88" y="464" font-family="monospace" font-size="14" font-weight="700" fill="#f0f2f8">New Post</text>
+  <!-- X close button -->
+  <circle cx="372" cy="456" r="12" fill="#ffffff10"/>
+  <text x="372" y="461" font-family="monospace" font-size="13" fill="#8b92a9" text-anchor="middle">✕</text>
+  <!-- divider -->
+  <line x1="72" y1="476" x2="388" y2="476" stroke="#ffffff10" stroke-width="1"/>
+
+  <!-- Form fields -->
+  <!-- Title field -->
+  <text x="88" y="500" font-family="monospace" font-size="10" fill="#8b92a9" font-weight="600">TITLE</text>
+  <rect x="88" y="506" width="284" height="34" fill="#0d0f1a" stroke="#ffffff14" stroke-width="1" rx="8"/>
+  <text x="100" y="528" font-family="monospace" font-size="10" fill="#555c73">Post title...</text>
+
+  <!-- Author field -->
+  <text x="88" y="558" font-family="monospace" font-size="10" fill="#8b92a9" font-weight="600">AUTHOR</text>
+  <rect x="88" y="564" width="284" height="34" fill="#0d0f1a" stroke="#ffffff14" stroke-width="1" rx="8"/>
+  <text x="100" y="586" font-family="monospace" font-size="10" fill="#555c73">Your name...</text>
+
+  <!-- Content field -->
+  <text x="88" y="614" font-family="monospace" font-size="10" fill="#8b92a9" font-weight="600">CONTENT</text>
+  <rect x="88" y="620" width="284" height="80" fill="#0d0f1a" stroke="#ffffff14" stroke-width="1" rx="8"/>
+  <text x="100" y="644" font-family="monospace" font-size="10" fill="#555c73">Write your post...</text>
+
+  <!-- Submit button -->
+  <rect x="88" y="716" width="284" height="40" fill="#7c3aed" rx="20"/>
+  <text x="230" y="741" font-family="monospace" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">Publish Post</text>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- SECTION 3: Post Detail Page (bottom-right)         -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <text x="466" y="360" font-family="monospace" font-size="12" fill="#333">③ Post Detail — centered article, 680px max-width</text>
+
+  <!-- Screen shell -->
+  <rect x="466" y="368" width="444" height="460" fill="#0d0f14" rx="10" stroke="#aaa"/>
+
+  <!-- Mini TopNav -->
+  <rect x="466" y="368" width="444" height="42" fill="#13161e" rx="10"/>
+  <rect x="466" y="395" width="444" height="15" fill="#13161e"/>
+  <text x="484" y="394" font-family="monospace" font-size="12" font-weight="700" fill="#8b5cf6">◈ Blog</text>
+  <rect x="786" y="377" width="94" height="22" fill="#7c3aed" rx="11"/>
+  <text x="833" y="393" font-family="monospace" font-size="10" fill="#fff" text-anchor="middle">+ New Post</text>
+
+  <!-- Article content area -->
+  <!-- Back link -->
+  <text x="530" y="432" font-family="monospace" font-size="10" fill="#8b92a9">← Back to posts</text>
+
+  <!-- Article (blue highlight — new layout) -->
+  <rect x="466" y="368" width="444" height="460" fill="none" stroke="#2196f3" stroke-width="2" rx="10"/>
+
+  <!-- Large title -->
+  <text x="530" y="460" font-family="monospace" font-size="18" font-weight="700" fill="#f0f2f8">Getting Started with AI</text>
+  <!-- Meta row -->
+  <text x="530" y="480" font-family="monospace" font-size="10" fill="#555c73">by Alice · Jan 12, 2026</text>
+  <!-- Divider -->
+  <line x1="530" y1="490" x2="880" y2="490" stroke="#ffffff10" stroke-width="1"/>
+  <!-- Content paragraphs -->
+  <text x="530" y="510" font-family="monospace" font-size="11" fill="#8b92a9">Modern development requires new patterns</text>
+  <text x="530" y="526" font-family="monospace" font-size="11" fill="#8b92a9">for the future of software engineering.</text>
+  <text x="530" y="542" font-family="monospace" font-size="11" fill="#8b92a9">This post explores the key principles...</text>
+  <text x="530" y="558" font-family="monospace" font-size="11" fill="#8b92a9">and how teams can adopt them today.</text>
+  <text x="530" y="574" font-family="monospace" font-size="11" fill="#8b92a9">The landscape has shifted dramatically</text>
+  <text x="530" y="590" font-family="monospace" font-size="11" fill="#8b92a9">in just the last twelve months...</text>
+
+  <!-- Action buttons -->
+  <rect x="530" y="618" width="80" height="30" fill="none" stroke="#8b5cf6" stroke-width="1.5" rx="15"/>
+  <text x="570" y="638" font-family="monospace" font-size="11" fill="#8b5cf6" text-anchor="middle">Edit</text>
+  <rect x="622" y="618" width="80" height="30" fill="none" stroke="#ef4444" stroke-width="1.5" rx="15"/>
+  <text x="662" y="638" font-family="monospace" font-size="11" fill="#ef4444" text-anchor="middle">Delete</text>
+
+  <!-- Edit mode (dimmed, shown as transform) -->
+  <rect x="530" y="655" width="350" height="80" fill="#1a1d28" fill-opacity="0.4" stroke="#8b5cf660" stroke-width="1" rx="8"/>
+  <text x="705" y="680" font-family="monospace" font-size="9" fill="#555c73" text-anchor="middle">[ Edit form slides in here with opacity transition ]</text>
+  <text x="705" y="696" font-family="monospace" font-size="9" fill="#555c73" text-anchor="middle">Title input + Content textarea + Save/Cancel</text>
+  <text x="705" y="714" font-family="monospace" font-size="9" fill="#555c73" text-anchor="middle">animation: slide-down 200ms ease</text>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- LEGEND                                              -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <rect x="10" y="838" width="900" height="18" fill="#f9f9f9" rx="4" stroke="#eee"/>
+  <rect x="20" y="842" width="12" height="10" fill="#e8f4fd" stroke="#2196f3" rx="2"/>
+  <text x="36" y="851" font-family="monospace" font-size="10" fill="#333">= new / changed element</text>
+  <rect x="200" y="842" width="12" height="10" fill="#1a1d28" stroke="#aaa" rx="2"/>
+  <text x="216" y="851" font-family="monospace" font-size="10" fill="#333">= existing element (dark-mode UI)</text>
+  <rect x="440" y="842" width="12" height="10" fill="#7c3aed" rx="2"/>
+  <text x="456" y="851" font-family="monospace" font-size="10" fill="#333">= accent color (#7c3aed electric violet)</text>
+</svg>

@@ -1,0 +1,118 @@
+<svg width="760" height="480" viewBox="0 0 760 480" xmlns="http://www.w3.org/2000/svg">
+  <rect width="760" height="480" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="20" y="22" font-family="monospace" font-size="13" font-weight="700" fill="#333">Sequence: "New Post" modal open → create post → modal close → grid refresh</text>
+
+  <!-- ═══ Actors ═══ -->
+  <!-- 5 actors evenly spaced: x = 60, 200, 340, 500, 660 -->
+  <!-- Actor: User -->
+  <rect x="20" y="34" width="80" height="28" fill="#e3f2fd" stroke="#1976d2" rx="4"/>
+  <text x="60" y="53" font-family="monospace" font-size="11" fill="#1976d2" text-anchor="middle">User</text>
+
+  <!-- Actor: TopNav -->
+  <rect x="160" y="34" width="80" height="28" fill="#e3f2fd" stroke="#1976d2" rx="4"/>
+  <text x="200" y="53" font-family="monospace" font-size="11" fill="#1976d2" text-anchor="middle">TopNav</text>
+
+  <!-- Actor: App.tsx -->
+  <rect x="300" y="34" width="80" height="28" fill="#e3f2fd" stroke="#1976d2" rx="4"/>
+  <text x="340" y="53" font-family="monospace" font-size="11" fill="#1976d2" text-anchor="middle">App.tsx</text>
+
+  <!-- Actor: API Client -->
+  <rect x="460" y="34" width="80" height="28" fill="#e3f2fd" stroke="#1976d2" rx="4"/>
+  <text x="500" y="53" font-family="monospace" font-size="11" fill="#1976d2" text-anchor="middle">API Client</text>
+
+  <!-- Actor: Backend -->
+  <rect x="630" y="34" width="80" height="28" fill="#e3f2fd" stroke="#1976d2" rx="4"/>
+  <text x="670" y="53" font-family="monospace" font-size="11" fill="#1976d2" text-anchor="middle">Backend</text>
+
+  <!-- ═══ Lifelines ═══ -->
+  <line x1="60"  y1="62" x2="60"  y2="460" stroke="#999" stroke-dasharray="4" stroke-width="1"/>
+  <line x1="200" y1="62" x2="200" y2="460" stroke="#999" stroke-dasharray="4" stroke-width="1"/>
+  <line x1="340" y1="62" x2="340" y2="460" stroke="#999" stroke-dasharray="4" stroke-width="1"/>
+  <line x1="500" y1="62" x2="500" y2="460" stroke="#999" stroke-dasharray="4" stroke-width="1"/>
+  <line x1="670" y1="62" x2="670" y2="460" stroke="#999" stroke-dasharray="4" stroke-width="1"/>
+
+  <!-- ═══ Activation boxes ═══ -->
+  <rect x="56"  y="92"  width="8" height="290" fill="#bbdefb" rx="2"/>
+  <rect x="196" y="102" width="8" height="40"  fill="#bbdefb" rx="2"/>
+  <rect x="336" y="130" width="8" height="260" fill="#bbdefb" rx="2"/>
+  <rect x="496" y="270" width="8" height="80"  fill="#bbdefb" rx="2"/>
+  <rect x="666" y="290" width="8" height="40"  fill="#bbdefb" rx="2"/>
+
+  <!-- ═══ Messages ═══ -->
+
+  <!-- 1. User clicks "New Post" button -->
+  <line x1="64"  y1="100" x2="196" y2="100" stroke="#333" stroke-width="1.5"/>
+  <polygon points="192,96 200,100 192,104" fill="#333"/>
+  <text x="128" y="96" font-family="monospace" font-size="10" fill="#333" text-anchor="middle">click "New Post"</text>
+
+  <!-- 2. TopNav calls onNewPost() → App.tsx -->
+  <line x1="204" y1="120" x2="336" y2="120" stroke="#333" stroke-width="1.5"/>
+  <polygon points="332,116 340,120 332,124" fill="#333"/>
+  <text x="270" y="116" font-family="monospace" font-size="10" fill="#333" text-anchor="middle">onNewPost()</text>
+
+  <!-- 3. App.tsx: setIsModalOpen(true) — self-call -->
+  <path d="M 344 140 Q 390 140 390 155 Q 390 170 344 170" fill="none" stroke="#333" stroke-width="1.5"/>
+  <polygon points="344,166 340,174 348,174" fill="#333"/>
+  <text x="412" y="158" font-family="monospace" font-size="10" fill="#333">setIsModalOpen(true)</text>
+
+  <!-- 4. App renders Modal (re-render arrow down) -->
+  <line x1="340" y1="190" x2="340" y2="205" stroke="#555" stroke-width="1" stroke-dasharray="3"/>
+  <text x="350" y="202" font-family="monospace" font-size="10" fill="#555">modal renders</text>
+  <!-- fade+scale label -->
+  <rect x="380" y="192" width="180" height="18" fill="#fff9e6" stroke="#ffb300" rx="3"/>
+  <text x="470" y="205" font-family="monospace" font-size="9" fill="#7a6000" text-anchor="middle">▶ opacity:0→1, scale(0.96)→scale(1), 200ms</text>
+
+  <!-- 5. User fills form and clicks Publish -->
+  <line x1="64"  y1="240" x2="336" y2="240" stroke="#333" stroke-width="1.5"/>
+  <polygon points="332,236 340,240 332,244" fill="#333"/>
+  <text x="200" y="236" font-family="monospace" font-size="10" fill="#333" text-anchor="middle">submit form (title, author, content)</text>
+
+  <!-- 6. App.tsx → API: createPost(data) -->
+  <line x1="344" y1="270" x2="496" y2="270" stroke="#333" stroke-width="1.5"/>
+  <polygon points="492,266 500,270 492,274" fill="#333"/>
+  <text x="420" y="266" font-family="monospace" font-size="10" fill="#333" text-anchor="middle">createPost(data)</text>
+
+  <!-- 7. API → Backend: POST /api/posts/ -->
+  <line x1="504" y1="290" x2="666" y2="290" stroke="#333" stroke-width="1.5"/>
+  <polygon points="662,286 670,290 662,294" fill="#333"/>
+  <text x="585" y="286" font-family="monospace" font-size="10" fill="#333" text-anchor="middle">POST /api/posts/</text>
+
+  <!-- 8. Backend → API: 201 new Post -->
+  <line x1="666" y1="320" x2="504" y2="320" stroke="#555" stroke-width="1.5" stroke-dasharray="5"/>
+  <polygon points="508,316 500,320 508,324" fill="#555"/>
+  <text x="585" y="316" font-family="monospace" font-size="10" fill="#555" text-anchor="middle">201 { id, title, ... }</text>
+
+  <!-- 9. API → App.tsx: resolved Post -->
+  <line x1="500" y1="340" x2="344" y2="340" stroke="#555" stroke-width="1.5" stroke-dasharray="5"/>
+  <polygon points="348,336 340,340 348,344" fill="#555"/>
+  <text x="420" y="336" font-family="monospace" font-size="10" fill="#555" text-anchor="middle">Promise resolves → Post</text>
+
+  <!-- 10. App: setPosts + setIsModalOpen(false) -->
+  <path d="M 344 360 Q 390 360 390 375 Q 390 390 344 390" fill="none" stroke="#333" stroke-width="1.5"/>
+  <polygon points="344,386 340,394 348,394" fill="#333"/>
+  <text x="500" y="370" font-family="monospace" font-size="10" fill="#333">setPosts([...posts, newPost])</text>
+  <text x="500" y="384" font-family="monospace" font-size="10" fill="#333">setIsModalOpen(false)</text>
+
+  <!-- 11. Modal unmounts (fade out) -->
+  <line x1="340" y1="405" x2="340" y2="420" stroke="#555" stroke-width="1" stroke-dasharray="3"/>
+  <rect x="350" y="406" width="180" height="18" fill="#fff9e6" stroke="#ffb300" rx="3"/>
+  <text x="440" y="419" font-family="monospace" font-size="9" fill="#7a6000" text-anchor="middle">▶ modal fades out, 200ms ease</text>
+
+  <!-- 12. HomePage re-renders with new card -->
+  <line x1="336" y1="430" x2="64" y2="430" stroke="#555" stroke-width="1.5" stroke-dasharray="5"/>
+  <polygon points="68,426 60,430 68,434" fill="#555"/>
+  <text x="200" y="426" font-family="monospace" font-size="10" fill="#555" text-anchor="middle">posts state updated → grid re-renders</text>
+  <!-- card-reveal animation note -->
+  <rect x="20" y="440" width="230" height="16" fill="#e8f5e9" stroke="#4caf50" rx="3"/>
+  <text x="135" y="452" font-family="monospace" font-size="9" fill="#1b5e20" text-anchor="middle">▶ new PostCard: card-reveal 300ms ease</text>
+
+  <!-- ═══ Legend ═══ -->
+  <line x1="540" y1="440" x2="580" y2="440" stroke="#333" stroke-width="1.5"/>
+  <polygon points="576,436 584,440 576,444" fill="#333"/>
+  <text x="590" y="444" font-family="monospace" font-size="10" fill="#333">call / event</text>
+  <line x1="540" y1="458" x2="580" y2="458" stroke="#555" stroke-width="1.5" stroke-dasharray="5"/>
+  <polygon points="576,454 584,458 576,462" fill="#555"/>
+  <text x="590" y="462" font-family="monospace" font-size="10" fill="#555">return / response</text>
+</svg>

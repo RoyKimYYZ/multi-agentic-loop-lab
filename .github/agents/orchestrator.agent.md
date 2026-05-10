@@ -62,14 +62,65 @@ Tell the user:
 - The slash command to start each Implementer agent: `/Implementer`
 Document the shared API contract between frontend and backend slices clearly in the design artifact. This is the only contract between parallel agents — they cannot talk to each other, so they must rely on the design artifact to stay in sync.
 
-### Step 7 — Track Progress
-Use the todo tool to track each slice. Mark a slice complete only when:
-- Its tests pass (`uv run pytest` or equivalent)
-- Its linter passes (`uv run ruff check .`)
-- A PR or merge is ready
+### Step 7 — Gate Each Slice Before Merge
 
-### Declare Complete
-When all slices are complete, report to the user that the feature is fully implemented and ready for review and merging. Do not merge branches yourself — leave that to the user after code review.
+When an Implementer reports a slice is done, run the automated checks **from inside the worktree** before telling the user anything.
+
+**Automated checks (run these yourself):**
+
+For backend slices — run from the worktree's `backend/` directory:
+```bash
+cd {worktree-path}/backend
+PYTHONPATH=. uv run pytest -q
+uv run ruff check .
+```
+
+For frontend slices — run from the worktree's `frontend/` directory:
+```bash
+cd {worktree-path}/frontend
+npm run build
+npm run lint
+```
+
+If any check fails, send the output back to the Implementer agent to fix. Do not proceed to browser testing until all automated checks pass.
+
+**Browser smoke test (run this for every frontend slice):**
+
+Start the backend and frontend servers from the worktree so the user can verify in a real browser. Use `runbook.sh` if it exists, otherwise run manually:
+
+```bash
+# Terminal 1 — backend
+cd {worktree-path}/backend
+uv run uvicorn app.main:app --reload --port 8000
+
+# Terminal 2 — frontend
+cd {worktree-path}/frontend
+npm run dev
+```
+
+Tell the user exactly what to check in the browser. Be specific — list the user actions that exercise the new feature:
+- URL to open (e.g. `http://localhost:5173`)
+- Actions to perform (e.g. "fill the form, click Publish, confirm the post appears at the top of the list")
+- What a passing result looks like
+
+Then ask the user explicitly:
+> ✅ **Did the browser smoke test pass?** Reply "yes" to clear this slice for merge, or describe what broke.
+
+Do not declare the slice complete until the user confirms.
+
+### Step 8 — Declare Complete
+When all slices have passed automated checks AND the user has confirmed the browser smoke test, report:
+> 🎉 Feature complete. All slices passed tests, lint, and browser verification. Ready to merge.
+
+Remind the user of the merge command:
+```bash
+cd /home/rkadmin/parallel-agent
+git merge feat/{slice-name} --no-ff -m "feat: merge {slice-name}
+
+Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
+```
+
+Do not merge branches yourself — leave that to the user after confirmation.
 
 ## Agent Roster
 

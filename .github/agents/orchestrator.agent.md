@@ -108,12 +108,22 @@ Do not declare the slice complete until the user confirms.
 When all slices have passed automated checks AND the user has confirmed the browser smoke test, report:
 > 🎉 Feature complete. All slices passed tests, lint, and browser verification. Ready to merge.
 
-Remind the user of the merge command:
+Tell the user to run `merge-slice.sh` once per slice. It merges, removes the worktree, and deletes the branch in one step:
+
 ```bash
 cd /home/rkadmin/parallel-agent
-git merge feat/{slice-name} --no-ff -m "feat: merge {slice-name}
+./merge-slice.sh {slice-name}
+```
 
-Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
+Example for two slices:
+```bash
+./merge-slice.sh delete-post-api
+./merge-slice.sh delete-post-ui
+```
+
+After all slices are merged, run the smoke test against main to confirm everything is healthy:
+```bash
+./smoke-test.sh
 ```
 
 Do not merge branches yourself — leave that to the user after confirmation.

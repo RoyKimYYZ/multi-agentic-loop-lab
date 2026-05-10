@@ -3,16 +3,7 @@ import { cleanup, render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import type { Post } from '../api/posts'
-import { listPosts } from '../api/posts'
 import { HomePage } from './HomePage'
-
-vi.mock('../api/posts', () => ({
-  listPosts: vi.fn(),
-  createPost: vi.fn(),
-  deletePost: vi.fn(),
-}))
-
-const mockedListPosts = vi.mocked(listPosts)
 
 const posts: Post[] = [
   {
@@ -32,11 +23,9 @@ afterEach(() => {
 
 describe('HomePage', () => {
   it('does not show an Edit button in the post list', async () => {
-    mockedListPosts.mockResolvedValueOnce(posts)
-
     render(
       <MemoryRouter>
-        <HomePage />
+        <HomePage posts={posts} onDelete={vi.fn()} />
       </MemoryRouter>,
     )
 
@@ -44,3 +33,4 @@ describe('HomePage', () => {
     expect(screen.queryByRole('button', { name: 'Edit' })).not.toBeInTheDocument()
   })
 })
+

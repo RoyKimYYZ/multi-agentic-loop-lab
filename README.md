@@ -122,7 +122,7 @@ User
 
 Each feature is split into independent **slices**, each on its own Git worktree and branch. Agents work simultaneously without stepping on each other.
 
-See `.github/agents/orchestrator.agent.md` for the full workflow.
+📖 **[Full documentation in the wiki →](./docs/index.md)**
 
 ## Features Implemented
 

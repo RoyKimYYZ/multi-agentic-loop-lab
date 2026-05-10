@@ -105,13 +105,19 @@ After running the script, tell the user exactly which checklist items are specif
 Do not declare the slice complete until the user confirms.
 
 ### Step 8 — Update Documentation
-Before declaring complete, update `README.md` in the repo root to reflect the newly merged feature:
+Before declaring complete, update the following docs to reflect the newly merged feature:
 
+**`README.md` (root):**
 - Add the feature to the **Features Implemented** table (feature name, branch(es) merged, slice count)
 - Update the **API Reference** table if any new endpoints were added
 - Update the **What It Does** bullet list if user-visible behavior changed
 
-Also update `backend/README.md` if new endpoints or schemas were added.
+**`backend/README.md`:** update if new endpoints or schemas were added.
+
+**`docs/` wiki:**
+- Create `docs/features/{feature-slug}.md` for the new feature (use existing feature pages as a template)
+- Update `docs/index.md` to link to the new feature page
+- Update `docs/api-reference.md` if new endpoints were added
 
 Do this yourself — do not delegate to an Implementer. These are living docs, not design artifacts.
 

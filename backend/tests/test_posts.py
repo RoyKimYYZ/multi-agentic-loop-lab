@@ -1,31 +1,35 @@
+from collections.abc import AsyncIterator
+from importlib import import_module
+from typing import Any, cast
+
 import pytest
 from httpx import ASGITransport, AsyncClient
 
-from app.main import app
+app = cast(Any, import_module("app.main").app)
 
 
 @pytest.fixture
-async def client():
+async def client() -> AsyncIterator[AsyncClient]:
     async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as ac:
         yield ac
 
 
 @pytest.mark.asyncio
-async def test_health(client):
+async def test_health(client: AsyncClient) -> None:
     response = await client.get("/health")
     assert response.status_code == 200
     assert response.json() == {"status": "ok"}
 
 
 @pytest.mark.asyncio
-async def test_list_posts(client):
+async def test_list_posts(client: AsyncClient) -> None:
     response = await client.get("/api/posts/")
     assert response.status_code == 200
     assert isinstance(response.json(), list)
 
 
 @pytest.mark.asyncio
-async def test_create_and_get_post(client):
+async def test_create_and_get_post(client: AsyncClient) -> None:
     payload = {"title": "Test Post", "content": "Hello world", "author": "tester"}
     create_resp = await client.post("/api/posts/", json=payload)
     assert create_resp.status_code == 201
@@ -37,7 +41,7 @@ async def test_create_and_get_post(client):
 
 
 @pytest.mark.asyncio
-async def test_delete_post_returns_204(client):
+async def test_delete_post_returns_204(client: AsyncClient) -> None:
     payload = {"title": "Delete Me", "content": "To be deleted", "author": "tester"}
     create_resp = await client.post("/api/posts/", json=payload)
     assert create_resp.status_code == 201
@@ -49,14 +53,14 @@ async def test_delete_post_returns_204(client):
 
 
 @pytest.mark.asyncio
-async def test_delete_post_not_found_returns_404(client):
+async def test_delete_post_not_found_returns_404(client: AsyncClient) -> None:
     delete_resp = await client.delete("/api/posts/99999")
     assert delete_resp.status_code == 404
     assert delete_resp.json() == {"detail": "Post not found"}
 
 
 @pytest.mark.asyncio
-async def test_delete_post_removes_from_get(client):
+async def test_delete_post_removes_from_get(client: AsyncClient) -> None:
     payload = {"title": "Gone Post", "content": "Will be gone", "author": "tester"}
     create_resp = await client.post("/api/posts/", json=payload)
     assert create_resp.status_code == 201
@@ -70,7 +74,7 @@ async def test_delete_post_removes_from_get(client):
 
 
 @pytest.mark.asyncio
-async def test_delete_post_not_in_list(client):
+async def test_delete_post_not_in_list(client: AsyncClient) -> None:
     payload = {"title": "Unlisted Post", "content": "Should disappear", "author": "tester"}
     create_resp = await client.post("/api/posts/", json=payload)
     assert create_resp.status_code == 201
@@ -86,7 +90,9 @@ async def test_delete_post_not_in_list(client):
 
 
 @pytest.mark.asyncio
-async def test_update_post_returns_updated_fields_and_preserves_immutable_fields(client):
+async def test_update_post_returns_updated_fields_and_preserves_immutable_fields(
+    client: AsyncClient,
+) -> None:
     payload = {"title": "Original Title", "content": "Original content", "author": "tester"}
     create_resp = await client.post("/api/posts/", json=payload)
     assert create_resp.status_code == 201
@@ -108,7 +114,9 @@ async def test_update_post_returns_updated_fields_and_preserves_immutable_fields
 
 
 @pytest.mark.asyncio
-async def test_update_post_supports_partial_put_and_preserves_untouched_fields(client):
+async def test_update_post_supports_partial_put_and_preserves_untouched_fields(
+    client: AsyncClient,
+) -> None:
     payload = {"title": "Keep Content", "content": "Still here", "author": "tester"}
     create_resp = await client.post("/api/posts/", json=payload)
     assert create_resp.status_code == 201
@@ -127,7 +135,7 @@ async def test_update_post_supports_partial_put_and_preserves_untouched_fields(c
 
 
 @pytest.mark.asyncio
-async def test_update_post_not_found_returns_404(client):
+async def test_update_post_not_found_returns_404(client: AsyncClient) -> None:
     update_resp = await client.put("/api/posts/99999", json={"title": "Missing post"})
     assert update_resp.status_code == 404
     assert update_resp.json() == {"detail": "Post not found"}

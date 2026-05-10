@@ -86,24 +86,20 @@ If any check fails, send the output back to the Implementer agent to fix. Do not
 
 **Browser smoke test (run this for every frontend slice):**
 
-Start the backend and frontend servers from the worktree so the user can verify in a real browser. Use `runbook.sh` if it exists, otherwise run manually:
+Run `smoke-test.sh` from the main repo, passing the worktree path as an argument.
+It will stop any running servers, start fresh ones from the worktree, wait for readiness, open the browser, and print a checklist:
 
 ```bash
-# Terminal 1 — backend
-cd {worktree-path}/backend
-uv run uvicorn app.main:app --reload --port 8000
-
-# Terminal 2 — frontend
-cd {worktree-path}/frontend
-npm run dev
+cd /home/rkadmin/parallel-agent
+./smoke-test.sh {worktree-path}
 ```
 
-Tell the user exactly what to check in the browser. Be specific — list the user actions that exercise the new feature:
-- URL to open (e.g. `http://localhost:5173`)
-- Actions to perform (e.g. "fill the form, click Publish, confirm the post appears at the top of the list")
-- What a passing result looks like
+For the main repo (not a worktree):
+```bash
+./smoke-test.sh
+```
 
-Then ask the user explicitly:
+After running the script, tell the user exactly which checklist items are specific to the new feature being tested. Then ask explicitly:
 > ✅ **Did the browser smoke test pass?** Reply "yes" to clear this slice for merge, or describe what broke.
 
 Do not declare the slice complete until the user confirms.

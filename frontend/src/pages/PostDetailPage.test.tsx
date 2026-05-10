@@ -3,7 +3,7 @@ import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/re
 import { MemoryRouter, Route, Routes } from 'react-router-dom'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import type { Post } from '../api/posts'
-import { getPost, updatePost } from '../api/posts'
+import { deletePost, getPost, updatePost } from '../api/posts'
 import { PostDetailPage } from './PostDetailPage'
 
 vi.mock('../api/posts', () => ({
@@ -14,6 +14,7 @@ vi.mock('../api/posts', () => ({
 
 const mockedGetPost = vi.mocked(getPost)
 const mockedUpdatePost = vi.mocked(updatePost)
+const mockedDeletePost = vi.mocked(deletePost)
 
 const post: Post = {
   id: 1,
@@ -27,6 +28,7 @@ function renderPage(postId = post.id) {
   return render(
     <MemoryRouter initialEntries={[`/posts/${postId}`]}>
       <Routes>
+        <Route path="/" element={<p>Home page</p>} />
         <Route path="/posts/:id" element={<PostDetailPage />} />
       </Routes>
     </MemoryRouter>,
@@ -70,6 +72,24 @@ describe('PostDetailPage edit flow', () => {
     expect(screen.getByText(`by ${post.author}`)).toBeInTheDocument()
     expect(screen.getByText(post.created_at)).toBeInTheDocument()
     expect(screen.queryByRole('button', { name: 'Delete' })).not.toBeInTheDocument()
+  })
+
+  it('shows Delete in view mode and keeps delete behavior usable', async () => {
+    mockedGetPost.mockResolvedValueOnce(post)
+    mockedDeletePost.mockResolvedValueOnce()
+    const confirmSpy = vi.spyOn(window, 'confirm').mockReturnValue(true)
+
+    renderPage()
+
+    expect(await screen.findByRole('heading', { name: post.title })).toBeInTheDocument()
+
+    fireEvent.click(screen.getByRole('button', { name: 'Delete' }))
+
+    expect(confirmSpy).toHaveBeenCalledWith('Delete this post?')
+    await waitFor(() => expect(mockedDeletePost).toHaveBeenCalledWith(post.id))
+    expect(await screen.findByText('Home page')).toBeInTheDocument()
+
+    confirmSpy.mockRestore()
   })
 
   it('exits edit mode on Cancel without calling updatePost', async () => {

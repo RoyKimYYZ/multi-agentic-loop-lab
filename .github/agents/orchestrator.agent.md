@@ -23,14 +23,72 @@ Read the design artifact the designer produced. Extract:
 - The API contract (shared between backend and frontend slices)
 
 ### Step 3 — Write an Implementation Plan per Slice
-Before touching any code or creating worktrees, write a short implementation plan for each slice. Save it alongside the design artifact or inline in the task file. 
+Before touching any code or creating worktrees, write the plan to a file and commit it.
+
+**Save to:** `docs/features/{feature-slug}-plan.md`
+
 Ask questions to gather the necessary details to make the implementation plan concrete and unambiguous for the Implementer agent. Ask questions that include but are not limited to technical best practices, performance, security, user experience, and edge cases.
 Do not design or implement for fallback logic to appease the Implementer agent — if the design is incomplete, ask the Designer to clarify, do not make assumptions yourself.
-Each plan must answer:
-- What ordered steps should the agent follow?
-- Which slice must finish first before this one can start (dependency)?
-- What specific technical decisions are already made (e.g. endpoint shape, schema field names, component props)?
-- What must NOT be decided by the Implementer agent (leave ambiguous = risk of drift)?
+
+The plan file must use this template:
+
+```markdown
+# Implementation Plan: {Feature Name}
+
+**Status:** In Progress
+**Design artifact:** [design-{slug}.prompt.md](../../.github/prompts/design-{slug}.prompt.md)
+
+---
+
+## Slices
+
+| # | Slice | Branch | Depends on |
+|---|---|---|---|
+| 1 | {slice-name} | `feat/{slice-name}` | — |
+| 2 | {slice-name-2} | `feat/{slice-name-2}` | Slice 1 (or "none") |
+
+---
+
+## Technical Decisions (fixed — Implementers must NOT deviate)
+
+- {decision 1: e.g. "DELETE returns 204 No Content, not 200"}
+- {decision 2: e.g. "optimistic UI removal — no refetch after delete"}
+- {decision 3: e.g. "window.confirm() for confirmation — no custom modal"}
+
+## Off-Limits for Implementers (do not let agents decide these)
+
+- {e.g. "Do not add a toast notification library"}
+- {e.g. "Do not change the Post data model"}
+
+---
+
+## Slice Plans
+
+### Slice 1: {slice-name}
+
+**Ordered steps:**
+1. ...
+2. ...
+
+**Files owned:**
+- `path/to/file`
+
+**Files off-limits:**
+- `path/to/other-file`
+
+**Acceptance criteria:**
+1. ...
+
+---
+
+### Slice 2: {slice-name-2}
+
+(repeat for each slice)
+```
+
+Commit the plan file to `main` before proceeding to Step 4. This makes it visible to the user and serves as a reviewable record of decisions made before implementation begins.
+
+Task files (Step 5) must reference this plan file at the top.
 
 This step prevents parallel agents from making conflicting choices independently.
 
@@ -49,7 +107,8 @@ git worktree add ../parallel-agent-comments-ui -b feat/comments-ui
 For each slice, create a task file at `.github/prompts/task-{slice-name}.prompt.md`.
 Each task file must include:
 - Link to the design artifact
-- The implementation plan for this slice
+- Link to the implementation plan (`docs/features/{feature-slug}-plan.md`)
+- The implementation plan for this slice (copy from plan file — do not summarise)
 - Which files this slice owns
 - What files are off-limits (owned by other slices)
 - The acceptance criteria (what tests prove it works)
@@ -114,7 +173,9 @@ Before declaring complete, update the following docs to reflect the newly merged
 
 **`backend/README.md`:** update if new endpoints or schemas were added.
 
-**`docs/` wiki — create `docs/features/{feature-slug}.md`** using this template:
+**`docs/` wiki — create `docs/features/{feature-slug}.md`** using this template (see above).
+
+Also **update `docs/features/{feature-slug}-plan.md`** — change `**Status:** In Progress` to `**Status:** Merged ✅` so the plan file reflects the completed state.
 
 ```markdown
 # Feature: {Feature Name}
@@ -125,6 +186,7 @@ Before declaring complete, update the following docs to reflect the newly merged
 
 **Artifacts:**
 - Design: [`.github/prompts/design-{feature-slug}.prompt.md`](../../.github/prompts/design-{feature-slug}.prompt.md)
+- Plan: [`docs/features/{feature-slug}-plan.md`](./{feature-slug}-plan.md)
 - Task ({slice}): [`.github/prompts/task-{slice-name}.prompt.md`](../../.github/prompts/task-{slice-name}.prompt.md)
 
 ---

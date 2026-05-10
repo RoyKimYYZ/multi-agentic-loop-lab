@@ -147,7 +147,7 @@ The design artifact should minimize shared-file conflicts by giving each slice e
 
 ## Artifact Files (Generated Per Feature)
 
-Every feature produces two types of generated files. These are **process artifacts** — they live in `.github/prompts/` and are never deleted after merge (they serve as a record of design decisions).
+Every feature produces these artifact files. They are **never deleted after merge** — they serve as a permanent record of design decisions.
 
 ### Design Artifact
 
@@ -155,17 +155,23 @@ Every feature produces two types of generated files. These are **process artifac
 **Location:** `.github/prompts/design-{feature-slug}.prompt.md`  
 **Purpose:** Single source of truth for what gets built. Contains API contract, data model, UI spec, and slice breakdown. Both backend and frontend Implementers read this — it is their only shared contract.
 
+### Implementation Plan
+
+**Who creates it:** Orchestrator (Step 3, before any code)  
+**Location:** `docs/features/{feature-slug}-plan.md`  
+**Purpose:** Captures the Orchestrator's decisions: slice list, dependencies, technical choices that are fixed, and decisions that Implementers must NOT make independently. Committed to `main` before worktrees are created — visible to the user as a reviewable record before implementation begins.
+
 ### Task Files
 
 **Who creates them:** Orchestrator  
 **Location:** `.github/prompts/task-{slice-name}.prompt.md` (one per slice)  
-**Purpose:** Step-by-step implementation instructions for one Implementer agent. Contains: link to design artifact, ordered implementation steps, files owned, files off-limits, acceptance criteria.
+**Purpose:** Step-by-step implementation instructions for one Implementer agent. Contains: link to design artifact, link to plan file, ordered implementation steps, files owned, files off-limits, acceptance criteria.
 
 ### Wiki Feature Page
 
 **Who creates it:** Orchestrator (Step 8, after merge)  
 **Location:** `docs/features/{feature-slug}.md`  
-**Purpose:** Living outcome documentation. Describes what shipped, what changed, what API is exposed, and links back to the design artifact and task files.
+**Purpose:** Living outcome documentation. Describes what shipped, what changed, what API is exposed, and links back to the design artifact, plan file, and task files.
 
 ### How They Connect
 
@@ -173,8 +179,14 @@ Every feature produces two types of generated files. These are **process artifac
 Designer produces
   └── .github/prompts/design-{feature}.prompt.md
          │
-         └── Orchestrator reads → writes
-                  ├── .github/prompts/task-{slice-1}.prompt.md  → Implementer 1
-                  ├── .github/prompts/task-{slice-2}.prompt.md  → Implementer 2
-                  └── (after merge) docs/features/{feature}.md  → links back to design + tasks
+         └── Orchestrator reads → writes (Step 3)
+                  ├── docs/features/{feature}-plan.md           ← decisions made before coding
+                  │
+                  └── Orchestrator creates worktrees + writes (Steps 4-5)
+                           ├── .github/prompts/task-{slice-1}.prompt.md  → Implementer 1
+                           ├── .github/prompts/task-{slice-2}.prompt.md  → Implementer 2
+                           │
+                           └── (after merge, Step 8)
+                                    docs/features/{feature}.md  → links back to all artifacts
 ```
+

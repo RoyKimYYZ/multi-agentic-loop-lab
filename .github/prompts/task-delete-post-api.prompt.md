@@ -91,7 +91,7 @@ Write exactly these four test functions:
 
 Run this to verify:
 ```bash
-cd /home/rkadmin/parallel-agent-delete-post-api/backend
+cd /home/rkadmin/multi-agentic-loop-lab-delete-post-api/backend
 PYTHONPATH=. uv run pytest -q
 ```
 
@@ -100,7 +100,7 @@ PYTHONPATH=. uv run pytest -q
 ## Worktree Path
 
 ```
-/home/rkadmin/parallel-agent-delete-post-api
+/home/rkadmin/multi-agentic-loop-lab-delete-post-api
 ```
 
 Branch: `feat/delete-post-api`

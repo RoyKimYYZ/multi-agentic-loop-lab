@@ -4,7 +4,7 @@
 Add a learner-friendly workflow explainer that shows the project agents working together and walks readers through the repo's software development lifecycle from request to merge.
 
 ## Goal and Audience
-- **Goal:** Make the parallel-agent workflow easy to understand at a glance before a learner reads the longer prose in `docs/workflow.md`.
+- **Goal:** Make the multi-agentic-loop-lab workflow easy to understand at a glance before a learner reads the longer prose in `docs/workflow.md`.
 - **Primary audience:** New learners opening the repo README and docs for the first time.
 - **Secondary audience:** Users running the agent workflow who want a quick visual reminder of who does what and in what order.
 

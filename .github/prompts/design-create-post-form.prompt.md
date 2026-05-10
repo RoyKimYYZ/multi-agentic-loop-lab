@@ -138,7 +138,7 @@ async function handleSubmit(data: PostCreate) {
 ### Slice 1: create-post-form-ui  _(single slice — all frontend, no backend work)_
 
 - **Branch:** `feat/create-post-form-ui`
-- **Worktree:** `../parallel-agent-create-post-form-ui/`
+- **Worktree:** `../multi-agentic-loop-lab-create-post-form-ui/`
 
 **Files owned (create or modify):**
 - `frontend/src/components/PostForm.tsx` — **create new**

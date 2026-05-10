@@ -88,7 +88,7 @@ All endpoints are prefixed with `/api/posts`.
 ## Project Structure
 
 ```
-parallel-agent/
+multi-agentic-loop-lab/
 ├── backend/
 │   ├── app/
 │   │   ├── main.py          # FastAPI app setup

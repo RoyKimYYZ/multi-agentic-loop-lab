@@ -45,7 +45,7 @@ When making changes:
 - explain the learning reason behind the change
 - keep the scope small
 - prefer one understandable step over many hidden changes
-- connect implementation choices to parallel-agent workflow concepts
+- connect implementation choices to multi-agentic-loop-lab workflow concepts
 - avoid large refactors unless the user explicitly asks
 
 When the user says "next" or "proceed," do not blindly continue feature work. Briefly explain what concept comes next and why it matters for parallel agents.

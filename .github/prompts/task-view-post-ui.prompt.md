@@ -12,7 +12,7 @@ Read this file first — it has the full technical design:
 `feat/view-post-ui`
 
 ## Your Worktree
-`../parallel-agent-view-post-ui/`
+`../multi-agentic-loop-lab-view-post-ui/`
 
 ## Files You Own
 Create or modify only these files:

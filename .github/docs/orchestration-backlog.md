@@ -1,7 +1,7 @@
 # Orchestration Backlog
 
 Gaps identified in the agent-based development lifecycle for this project.
-Revisit when ready to mature the parallel-agent workflow.
+Revisit when ready to mature the multi-agentic-loop-lab workflow.
 
 ---
 

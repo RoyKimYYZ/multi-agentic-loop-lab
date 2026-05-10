@@ -295,7 +295,7 @@ The Orchestrator must preserve this:
 
 ### Slice 1: edit-post-api
 - **Branch:** `feat/edit-post-api`
-- **Worktree:** `../parallel-agent-edit-post-api/`
+- **Worktree:** `../multi-agentic-loop-lab-edit-post-api/`
 
 **Owns:**
 - `backend/tests/test_posts.py`
@@ -318,7 +318,7 @@ The Orchestrator must preserve this:
 
 ### Slice 2: edit-post-ui
 - **Branch:** `feat/edit-post-ui`
-- **Worktree:** `../parallel-agent-edit-post-ui/`
+- **Worktree:** `../multi-agentic-loop-lab-edit-post-ui/`
 
 **Owns:**
 - `frontend/src/api/posts.ts`

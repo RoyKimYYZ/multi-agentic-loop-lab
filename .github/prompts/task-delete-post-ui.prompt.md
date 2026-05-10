@@ -183,7 +183,7 @@ Add Delete button inside the `{post && (...)}` block, after the `<time>` element
 
 Run this to verify build + lint:
 ```bash
-cd /home/rkadmin/parallel-agent-delete-post-ui/frontend
+cd /home/rkadmin/multi-agentic-loop-lab-delete-post-ui/frontend
 npm run build
 npm run lint
 ```
@@ -193,7 +193,7 @@ npm run lint
 ## Worktree Path
 
 ```
-/home/rkadmin/parallel-agent-delete-post-ui
+/home/rkadmin/multi-agentic-loop-lab-delete-post-ui
 ```
 
 Branch: `feat/delete-post-ui`

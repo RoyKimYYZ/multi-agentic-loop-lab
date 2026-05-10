@@ -137,7 +137,7 @@ Save failure:
 Run from this worktree:
 
 ```bash
-cd /home/rkadmin/parallel-agent-edit-post-ui/frontend
+cd /home/rkadmin/multi-agentic-loop-lab-edit-post-ui/frontend
 npm run build
 npm run lint
 ```
@@ -145,7 +145,7 @@ npm run lint
 ## Commit
 
 ```bash
-cd /home/rkadmin/parallel-agent-edit-post-ui
+cd /home/rkadmin/multi-agentic-loop-lab-edit-post-ui
 git add frontend/src/api/posts.ts frontend/src/components/EditPostForm.tsx frontend/src/pages/PostDetailPage.tsx
 git commit -m "feat: add inline edit flow on post detail page
 

@@ -1,6 +1,6 @@
 # Scripts Reference
 
-All scripts live in the repo root and must be run from `/home/rkadmin/parallel-agent`.
+All scripts live in the repo root and must be run from `/home/rkadmin/multi-agentic-loop-lab`.
 
 ---
 
@@ -78,7 +78,7 @@ Merge a feature slice into `main`, remove its worktree, and delete its branch â€
 # 2. ... implement a feature via agents ...
 
 # 3. Gate the worktree (Orchestrator runs this)
-./smoke-test.sh /home/rkadmin/parallel-agent-{slice}
+./smoke-test.sh /home/rkadmin/multi-agentic-loop-lab-{slice}
 
 # 4. After user confirms browser test, merge each slice
 ./merge-slice.sh {slice-name}

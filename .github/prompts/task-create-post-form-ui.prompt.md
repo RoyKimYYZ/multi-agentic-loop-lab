@@ -12,7 +12,7 @@ Read this file first — it has the full technical design:
 `feat/create-post-form-ui`
 
 ## Your Worktree
-`../parallel-agent-create-post-form-ui/`
+`../multi-agentic-loop-lab-create-post-form-ui/`
 
 ## Files You Own
 Create or modify only these files:

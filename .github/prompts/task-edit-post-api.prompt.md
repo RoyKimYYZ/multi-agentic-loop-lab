@@ -85,7 +85,7 @@ Follow the existing test style in `backend/tests/test_posts.py`.
 Run from this worktree:
 
 ```bash
-cd /home/rkadmin/parallel-agent-edit-post-api/backend
+cd /home/rkadmin/multi-agentic-loop-lab-edit-post-api/backend
 PYTHONPATH=. uv run pytest -q
 uv run ruff check .
 ```
@@ -93,7 +93,7 @@ uv run ruff check .
 ## Commit
 
 ```bash
-cd /home/rkadmin/parallel-agent-edit-post-api
+cd /home/rkadmin/multi-agentic-loop-lab-edit-post-api
 git add backend/tests/test_posts.py
 git commit -m "test: add edit post endpoint coverage
 

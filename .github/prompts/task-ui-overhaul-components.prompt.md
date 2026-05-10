@@ -2,7 +2,7 @@
 
 **Design artifact:** [design-ui-overhaul.prompt.md](./design-ui-overhaul.prompt.md)
 **Implementation plan:** [docs/features/ui-overhaul-plan.md](../../docs/features/ui-overhaul-plan.md)
-**Worktree:** `../parallel-agent-ui-overhaul-components`
+**Worktree:** `../multi-agentic-loop-lab-ui-overhaul-components`
 **Branch:** `feat/ui-overhaul-components`
 
 > ⚠️ **Do NOT begin until Slice 1 (`feat/ui-overhaul-system`) is merged to `main` and you have pulled `main` into this worktree.** This slice depends on CSS tokens in `index.css` and utility classes in `App.css` that Slice 1 writes. Without them, nothing will render correctly.
@@ -20,7 +20,7 @@ Style the **PostList into a card grid**, restyle the **PostDetailPage as a readi
 ## First Step: Pull Main
 
 ```bash
-cd /home/rkadmin/parallel-agent-ui-overhaul-components
+cd /home/rkadmin/multi-agentic-loop-lab-ui-overhaul-components
 git pull origin main
 cd frontend && npm install
 ```
@@ -454,7 +454,7 @@ cd frontend && npm install
 ## Gates Before Reporting Done
 
 ```bash
-cd /home/rkadmin/parallel-agent-ui-overhaul-components/frontend
+cd /home/rkadmin/multi-agentic-loop-lab-ui-overhaul-components/frontend
 npm run build    # must succeed, zero errors
 npm run lint     # must pass
 npm test         # all existing tests must pass

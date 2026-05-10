@@ -2,7 +2,7 @@
 
 **Design artifact:** [design-ui-overhaul.prompt.md](./design-ui-overhaul.prompt.md)
 **Implementation plan:** [docs/features/ui-overhaul-plan.md](../../docs/features/ui-overhaul-plan.md)
-**Worktree:** `../parallel-agent-ui-overhaul-system`
+**Worktree:** `../multi-agentic-loop-lab-ui-overhaul-system`
 **Branch:** `feat/ui-overhaul-system`
 
 > ⚠️ **Read the full design artifact and plan before writing any code.** Every CSS value, every component prop, every class name is specified exactly. Do not invent or approximate.
@@ -172,7 +172,7 @@ Lay the **complete design token foundation** for the 2026 UI overhaul and rebuil
 ## Gates Before Reporting Done
 
 ```bash
-cd /home/rkadmin/parallel-agent-ui-overhaul-system/frontend
+cd /home/rkadmin/multi-agentic-loop-lab-ui-overhaul-system/frontend
 npm run build    # must succeed, zero errors
 npm run lint     # must pass
 npm test         # all existing tests must pass

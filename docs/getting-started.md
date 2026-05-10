@@ -15,8 +15,8 @@
 ## 1. Clone the repo
 
 ```bash
-git clone <repo-url> parallel-agent
-cd parallel-agent
+git clone <repo-url> multi-agentic-loop-lab
+cd multi-agentic-loop-lab
 ```
 
 ---

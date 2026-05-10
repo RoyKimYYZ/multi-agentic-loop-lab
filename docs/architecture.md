@@ -3,7 +3,7 @@
 ## High-Level Structure
 
 ```
-parallel-agent/
+multi-agentic-loop-lab/
 ├── backend/          # FastAPI Python app
 ├── frontend/         # React + TypeScript + Vite app
 ├── .github/          # Agent definitions, design artifacts, task files

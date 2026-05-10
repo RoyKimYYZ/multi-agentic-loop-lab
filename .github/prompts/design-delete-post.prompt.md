@@ -240,7 +240,7 @@ async function handleDelete() {
 
 ### Slice 1: delete-post-api (backend)
 - **Branch:** `feat/delete-post-api`
-- **Worktree:** `../parallel-agent-delete-post-api/`
+- **Worktree:** `../multi-agentic-loop-lab-delete-post-api/`
 
 **Files owned (modify only):**
 - `backend/tests/test_posts.py` — add four new test cases for the delete endpoint
@@ -264,7 +264,7 @@ async function handleDelete() {
 
 ### Slice 2: delete-post-ui (frontend)
 - **Branch:** `feat/delete-post-ui`
-- **Worktree:** `../parallel-agent-delete-post-ui/`
+- **Worktree:** `../multi-agentic-loop-lab-delete-post-ui/`
 
 **Files owned (create or modify):**
 - `frontend/src/api/posts.ts` — add `deletePost` export

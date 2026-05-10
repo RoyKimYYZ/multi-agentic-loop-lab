@@ -99,8 +99,8 @@ git worktree add ../{repo-name}-{slice-name} -b feat/{slice-name}
 ```
 Example for a "comments" feature with two slices:
 ```bash
-git worktree add ../parallel-agent-comments-api -b feat/comments-api
-git worktree add ../parallel-agent-comments-ui -b feat/comments-ui
+git worktree add ../multi-agentic-loop-lab-comments-api -b feat/comments-api
+git worktree add ../multi-agentic-loop-lab-comments-ui -b feat/comments-ui
 ```
 
 ### Step 5 — Produce Slice Task Files
@@ -149,7 +149,7 @@ Run `smoke-test.sh` from the main repo, passing the worktree path as an argument
 It will stop any running servers, start fresh ones from the worktree, wait for readiness, open the browser, and print a checklist:
 
 ```bash
-cd /home/rkadmin/parallel-agent
+cd /home/rkadmin/multi-agentic-loop-lab
 ./smoke-test.sh {worktree-path}
 ```
 
@@ -221,7 +221,7 @@ When all slices have passed automated checks AND the user has confirmed the brow
 Tell the user to run `merge-slice.sh` once per slice. It merges, removes the worktree, and deletes the branch in one step:
 
 ```bash
-cd /home/rkadmin/parallel-agent
+cd /home/rkadmin/multi-agentic-loop-lab
 ./merge-slice.sh {slice-name}
 ```
 

@@ -50,7 +50,7 @@ The Orchestrator extracts slices from the design, writes an implementation plan 
 ### Step 4 — Worktrees
 One Git worktree per slice:
 ```bash
-git worktree add ../parallel-agent-{slice} -b feat/{slice}
+git worktree add ../multi-agentic-loop-lab-{slice} -b feat/{slice}
 ```
 Each worktree is a full checkout of the repo on its own branch. Agents in different worktrees write to different files and cannot conflict.
 
@@ -108,9 +108,9 @@ A Git worktree lets you check out a branch into a **separate directory** without
 - Each agent sees only its own branch — clean isolation
 
 ```
-/home/user/parallel-agent/                    ← main branch
-/home/user/parallel-agent-delete-post-api/    ← feat/delete-post-api
-/home/user/parallel-agent-delete-post-ui/     ← feat/delete-post-ui
+/home/user/multi-agentic-loop-lab/                    ← main branch
+/home/user/multi-agentic-loop-lab-delete-post-api/    ← feat/delete-post-api
+/home/user/multi-agentic-loop-lab-delete-post-ui/     ← feat/delete-post-ui
 ```
 
 All three share the same `.git` folder — they are not copies, just different working trees.

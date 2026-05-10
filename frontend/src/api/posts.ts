@@ -12,6 +12,11 @@ export interface PostCreate {
   author: string;
 }
 
+export interface PostUpdate {
+  title?: string;
+  content?: string;
+}
+
 const BASE = "http://localhost:8000/api/posts";
 
 export async function listPosts(): Promise<Post[]> {
@@ -33,6 +38,16 @@ export async function createPost(data: PostCreate): Promise<Post> {
     body: JSON.stringify(data),
   });
   if (!res.ok) throw new Error("Failed to create post");
+  return res.json();
+}
+
+export async function updatePost(id: number, data: PostUpdate): Promise<Post> {
+  const res = await fetch(`${BASE}/${id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  if (!res.ok) throw new Error("Failed to update post");
   return res.json();
 }
 

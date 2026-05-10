@@ -4,6 +4,10 @@
 **Branch:** `feat/create-post-form-ui`  
 **Slices:** 1 (frontend)
 
+**Artifacts:**
+- Design: [`.github/prompts/design-create-post-form.prompt.md`](../../.github/prompts/design-create-post-form.prompt.md)
+- Task: [`.github/prompts/task-create-post-form-ui.prompt.md`](../../.github/prompts/task-create-post-form-ui.prompt.md)
+
 ---
 
 ## What It Does

@@ -4,6 +4,11 @@
 **Branches:** `feat/delete-post-api`, `feat/delete-post-ui`  
 **Slices:** 2 (backend tests + frontend)
 
+**Artifacts:**
+- Design: [`.github/prompts/design-delete-post.prompt.md`](../../.github/prompts/design-delete-post.prompt.md)
+- Task (API): [`.github/prompts/task-delete-post-api.prompt.md`](../../.github/prompts/task-delete-post-api.prompt.md)
+- Task (UI): [`.github/prompts/task-delete-post-ui.prompt.md`](../../.github/prompts/task-delete-post-ui.prompt.md)
+
 ---
 
 ## What It Does

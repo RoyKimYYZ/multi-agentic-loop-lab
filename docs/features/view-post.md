@@ -4,6 +4,10 @@
 **Branch:** `feat/view-post-ui`  
 **Slices:** 1 (frontend)
 
+**Artifacts:**
+- Design: [`.github/prompts/design-view-post.prompt.md`](../../.github/prompts/design-view-post.prompt.md)
+- Task: [`.github/prompts/task-view-post-ui.prompt.md`](../../.github/prompts/task-view-post-ui.prompt.md)
+
 ---
 
 ## What It Does

@@ -142,3 +142,39 @@ The design artifact should minimize shared-file conflicts by giving each slice e
 | `.github/agents/backend-tester.agent.md` | pytest specialist |
 | `.github/agents/frontend-tester.agent.md` | Vitest specialist |
 | `.github/agents/code-reviewer.agent.md` | Quality gate reviewer |
+
+---
+
+## Artifact Files (Generated Per Feature)
+
+Every feature produces two types of generated files. These are **process artifacts** — they live in `.github/prompts/` and are never deleted after merge (they serve as a record of design decisions).
+
+### Design Artifact
+
+**Who creates it:** Designer agent  
+**Location:** `.github/prompts/design-{feature-slug}.prompt.md`  
+**Purpose:** Single source of truth for what gets built. Contains API contract, data model, UI spec, and slice breakdown. Both backend and frontend Implementers read this — it is their only shared contract.
+
+### Task Files
+
+**Who creates them:** Orchestrator  
+**Location:** `.github/prompts/task-{slice-name}.prompt.md` (one per slice)  
+**Purpose:** Step-by-step implementation instructions for one Implementer agent. Contains: link to design artifact, ordered implementation steps, files owned, files off-limits, acceptance criteria.
+
+### Wiki Feature Page
+
+**Who creates it:** Orchestrator (Step 8, after merge)  
+**Location:** `docs/features/{feature-slug}.md`  
+**Purpose:** Living outcome documentation. Describes what shipped, what changed, what API is exposed, and links back to the design artifact and task files.
+
+### How They Connect
+
+```
+Designer produces
+  └── .github/prompts/design-{feature}.prompt.md
+         │
+         └── Orchestrator reads → writes
+                  ├── .github/prompts/task-{slice-1}.prompt.md  → Implementer 1
+                  ├── .github/prompts/task-{slice-2}.prompt.md  → Implementer 2
+                  └── (after merge) docs/features/{feature}.md  → links back to design + tasks
+```

@@ -114,9 +114,40 @@ Before declaring complete, update the following docs to reflect the newly merged
 
 **`backend/README.md`:** update if new endpoints or schemas were added.
 
-**`docs/` wiki:**
-- Create `docs/features/{feature-slug}.md` for the new feature (use existing feature pages as a template)
-- Update `docs/index.md` to link to the new feature page
+**`docs/` wiki — create `docs/features/{feature-slug}.md`** using this template:
+
+```markdown
+# Feature: {Feature Name}
+
+**Status:** Merged ✅
+**Branch(es):** `feat/{slice-name}` [, `feat/{slice-name-2}`]
+**Slices:** N (describe each)
+
+**Artifacts:**
+- Design: [`.github/prompts/design-{feature-slug}.prompt.md`](../../.github/prompts/design-{feature-slug}.prompt.md)
+- Task ({slice}): [`.github/prompts/task-{slice-name}.prompt.md`](../../.github/prompts/task-{slice-name}.prompt.md)
+
+---
+
+## What It Does
+(user-visible description)
+
+## User Flow
+(numbered steps)
+
+## Files Changed
+| File | Change |
+|---|---|
+
+## API Used
+(endpoint + link to api-reference.md)
+
+## Test Coverage (if backend slice)
+| Test | Asserts |
+|---|---|
+```
+
+- Update `docs/index.md` to link to the new feature page under **Pages → Features**
 - Update `docs/api-reference.md` if new endpoints were added
 
 Do this yourself — do not delegate to an Implementer. These are living docs, not design artifacts.

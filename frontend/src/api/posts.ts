@@ -35,3 +35,9 @@ export async function createPost(data: PostCreate): Promise<Post> {
   if (!res.ok) throw new Error("Failed to create post");
   return res.json();
 }
+
+export async function deletePost(id: number): Promise<void> {
+  const res = await fetch(`${BASE}/${id}`, { method: "DELETE" });
+  if (!res.ok) throw new Error("Failed to delete post");
+  // No res.json() — 204 has no body
+}

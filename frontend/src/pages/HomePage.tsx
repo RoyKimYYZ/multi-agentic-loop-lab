@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { createPost, listPosts, type Post, type PostCreate } from '../api/posts'
+import { createPost, deletePost, listPosts, type Post, type PostCreate } from '../api/posts'
 import { PostForm } from '../components/PostForm'
 import { PostList } from '../components/PostList'
 
@@ -29,11 +29,20 @@ export function HomePage() {
     }
   }
 
+  async function handleDelete(id: number) {
+    try {
+      await deletePost(id);
+      setPosts(posts.filter(p => p.id !== id));
+    } catch {
+      setError("Failed to delete post.");
+    }
+  }
+
   return (
     <div>
       <PostForm onSubmit={handleSubmit} disabled={submitting} />
       {error && <p>{error}</p>}
-      <PostList posts={posts} />
+      <PostList posts={posts} onDelete={handleDelete} />
     </div>
   )
 }

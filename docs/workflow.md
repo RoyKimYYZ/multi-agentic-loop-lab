@@ -1,6 +1,12 @@
-# Parallel Agent Workflow
+# Multi-Agent Workflow
 
 This project is structured to teach **parallel AI agent development** — multiple Copilot agents working on independent branches simultaneously, coordinated by an Orchestrator.
+
+## Visual Workflow
+
+![Multi-agent loop diagram](./diagrams/multi-agent-loop.svg)
+
+The diagram shows the recurring request → design → plan → worktree → parallel build → gate → docs → merge loop.
 
 ---
 

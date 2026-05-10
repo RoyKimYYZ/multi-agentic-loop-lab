@@ -44,7 +44,7 @@ Role: Read codebase, search GitHub issues/docs, evaluate options, write a short 
 
 ### 3. Scoped Coding Instructions
 
-**Why:** Parallel agents who never share context need explicit written conventions. Currently agents infer conventions by reading existing files — fragile when new agents start with no history.
+**Why:** Multiple agents who never share context need explicit written conventions. Currently agents infer conventions by reading existing files — fragile when new agents start with no history.
 
 **What to create:**
 - `.github/instructions/backend.instructions.md` — apply to `backend/**`

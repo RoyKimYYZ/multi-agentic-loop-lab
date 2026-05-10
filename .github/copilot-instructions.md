@@ -1,6 +1,6 @@
 # Copilot Instructions
 
-This project is a learning scaffold for practicing productive development with VS Code, GitHub Copilot, Git worktrees, GitHub issues, and parallel agents.
+This project is a learning scaffold for practicing productive development with VS Code, GitHub Copilot, Git worktrees, GitHub issues, and multi-agent collaboration.
 
 The goal is not production-grade engineering. Optimize for clear learning, simple code, readable architecture, and agent-friendly task boundaries.
 
@@ -10,7 +10,7 @@ This repository contains a simple blog application:
 
 - Backend: FastAPI using `uv`
 - Frontend: React + Vite
-- Purpose: learn how parallel agents can work on independent slices of the same application
+- Purpose: learn how multiple agents can work on independent slices of the same application
 - Current priority: clarity, modularity, and coaching value over completeness
 
 ## Core Development Principles
@@ -48,7 +48,7 @@ When making changes:
 - connect implementation choices to multi-agentic-loop-lab workflow concepts
 - avoid large refactors unless the user explicitly asks
 
-When the user says "next" or "proceed," do not blindly continue feature work. Briefly explain what concept comes next and why it matters for parallel agents.
+When the user says "next" or "proceed," do not blindly continue feature work. Briefly explain what concept comes next and why it matters for multi-agent collaboration.
 
 ## Architecture Guidelines
 

@@ -1,4 +1,4 @@
-# Wiki — Parallel Agent Blog
+# Wiki — Multi-Agent Blog
 
 Welcome to the project wiki. Use the links below to navigate.
 
@@ -13,7 +13,7 @@ Welcome to the project wiki. Use the links below to navigate.
 - [Architecture Overview](./architecture.md) — how backend and frontend are structured
 - [API Reference](./api-reference.md) — all endpoints, request/response shapes
 
-### Parallel Agent Workflow
+### Multi-Agent Workflow
 - [Workflow Overview](./workflow.md) — how the three-tier agent system works
 - [Scripts Reference](./scripts.md) — `smoke-test.sh`, `merge-slice.sh`, `stop.sh`
 

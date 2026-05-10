@@ -1,5 +1,5 @@
 ---
-description: "Use when: planning a new feature, coordinating parallel agents, setting up worktrees, breaking work into slices, assigning agent tasks, managing parallel development workflow"
+description: "Use when: planning a new feature, coordinating multi-agent work, setting up worktrees, breaking work into slices, assigning agent tasks, managing concurrent development workflow"
 name: "Orchestrator"
 tools: [read, search, execute, edit, agent, todo]
 argument-hint: "Describe the feature to build (e.g. 'add comments to posts')"
@@ -90,7 +90,7 @@ Commit the plan file to `main` before proceeding to Step 4. This makes it visibl
 
 Task files (Step 5) must reference this plan file at the top.
 
-This step prevents parallel agents from making conflicting choices independently.
+This step prevents multiple agents from making conflicting choices independently.
 
 ### Step 4 — Set Up Worktrees
 For each slice, set up a Git worktree so agents can work in isolation:
@@ -119,7 +119,7 @@ Tell the user:
 - The branch name and worktree path for each slice
 - Which VS Code window to open for each slice agent
 - The slash command to start each Implementer agent: `/Implementer`
-Document the shared API contract between frontend and backend slices clearly in the design artifact. This is the only contract between parallel agents — they cannot talk to each other, so they must rely on the design artifact to stay in sync.
+Document the shared API contract between frontend and backend slices clearly in the design artifact. This is the only contract between agents — they cannot talk to each other, so they must rely on the design artifact to stay in sync.
 
 ### Step 7 — Gate Each Slice Before Merge
 

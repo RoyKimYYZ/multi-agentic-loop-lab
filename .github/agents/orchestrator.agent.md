@@ -104,7 +104,18 @@ After running the script, tell the user exactly which checklist items are specif
 
 Do not declare the slice complete until the user confirms.
 
-### Step 8 — Declare Complete
+### Step 8 — Update Documentation
+Before declaring complete, update `README.md` in the repo root to reflect the newly merged feature:
+
+- Add the feature to the **Features Implemented** table (feature name, branch(es) merged, slice count)
+- Update the **API Reference** table if any new endpoints were added
+- Update the **What It Does** bullet list if user-visible behavior changed
+
+Also update `backend/README.md` if new endpoints or schemas were added.
+
+Do this yourself — do not delegate to an Implementer. These are living docs, not design artifacts.
+
+### Step 9 — Declare Complete
 When all slices have passed automated checks AND the user has confirmed the browser smoke test, report:
 > 🎉 Feature complete. All slices passed tests, lint, and browser verification. Ready to merge.
 

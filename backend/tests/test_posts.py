@@ -83,3 +83,51 @@ async def test_delete_post_not_in_list(client):
     assert list_resp.status_code == 200
     ids = [post["id"] for post in list_resp.json()]
     assert post_id not in ids
+
+
+@pytest.mark.asyncio
+async def test_update_post_returns_updated_fields_and_preserves_immutable_fields(client):
+    payload = {"title": "Original Title", "content": "Original content", "author": "tester"}
+    create_resp = await client.post("/api/posts/", json=payload)
+    assert create_resp.status_code == 201
+    created_post = create_resp.json()
+    post_id = created_post["id"]
+
+    update_resp = await client.put(
+        f"/api/posts/{post_id}",
+        json={"title": "Updated Title", "content": "Updated content"},
+    )
+    assert update_resp.status_code == 200
+    assert update_resp.json() == {
+        "id": created_post["id"],
+        "title": "Updated Title",
+        "content": "Updated content",
+        "author": created_post["author"],
+        "created_at": created_post["created_at"],
+    }
+
+
+@pytest.mark.asyncio
+async def test_update_post_supports_partial_put_and_preserves_untouched_fields(client):
+    payload = {"title": "Keep Content", "content": "Still here", "author": "tester"}
+    create_resp = await client.post("/api/posts/", json=payload)
+    assert create_resp.status_code == 201
+    created_post = create_resp.json()
+    post_id = created_post["id"]
+
+    update_resp = await client.put(f"/api/posts/{post_id}", json={"title": "New Title Only"})
+    assert update_resp.status_code == 200
+    assert update_resp.json() == {
+        "id": created_post["id"],
+        "title": "New Title Only",
+        "content": created_post["content"],
+        "author": created_post["author"],
+        "created_at": created_post["created_at"],
+    }
+
+
+@pytest.mark.asyncio
+async def test_update_post_not_found_returns_404(client):
+    update_resp = await client.put("/api/posts/99999", json={"title": "Missing post"})
+    assert update_resp.status_code == 404
+    assert update_resp.json() == {"detail": "Post not found"}

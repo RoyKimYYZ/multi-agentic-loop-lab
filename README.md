@@ -1,50 +1,46 @@
 # Multi-Agentic Loop Lab
 
-I built this repo to document my own learning process using **multi-agent orchestration** with GitHub Copilot. The app is a simple blog, but the blog is just the vehicle. What I'm really capturing here is the agent system I put together: the custom agents, the instructions, the prompt files, and the workflow patterns that took shape as I built each feature.
+A personal learning journal documenting **multi-agent orchestration** with GitHub Copilot. The app is a simple blog, but the blog is just the vehicle. The focus is the agent system: custom agents, instructions, prompt files, and workflow patterns.
 
-If you're trying to figure out how to use VS Code, GitHub Copilot, and Git worktrees to coordinate multiple AI agents through a development cycle, this shows one way to do it.
+If you want to see how VS Code, GitHub Copilot, and Git worktrees can coordinate multiple AI agents through a real development cycle, this repo shows one working approach.
 
 ---
 
 ## What This Repo Is About
 
-My starting question was pretty simple: can a handful of purpose-built agents, each working on its own slice of a codebase, actually ship a working web app with only light human steering?
+Can purpose-built agents, each owning one slice of a codebase, ship a working web app with minimal human steering? Yes, with the right structure.
 
-After building several features this way, the answer is yes. But it requires structure. This repo is that structure.
-
-What I found is that agents do their best work when they have a specific set of files they own, a written contract they can refer back to, and a scope narrow enough that they never have to guess what's out of bounds. The Orchestrator runs the loop but doesn't touch the code. The Designer writes the spec but doesn't implement. The Implementers build without making design calls. When roles stay clean, the whole thing moves fast.
+Agents work best with clear file ownership, a written contract to reference, and a scope narrow enough that they never have to guess. The Orchestrator runs the loop but doesn't touch code. The Designer writes the spec but doesn't implement. The Implementers build without making design calls.
 
 ---
 
 ## The Agent System
 
-Everything that drives the agents lives in `.github/`, organized into three layers.
+All agent configuration lives in `.github/`, in three layers.
 
 ### Agent mode files in `.github/agents/`
 
-Each file defines a custom Copilot agent mode: its role, the tools it can use, and the boundaries it stays within.
-
 | Agent | Role |
 |---|---|
-| [`orchestrator.agent.md`](.github/agents/orchestrator.agent.md) | Plans the work, coordinates agents, gates merges, updates docs |
-| [`designer.agent.md`](.github/agents/designer.agent.md) | Reads the codebase and produces the design artifact (no code writing) |
+| [`orchestrator.agent.md`](.github/agents/orchestrator.agent.md) | Plans work, coordinates agents, gates merges, updates docs |
+| [`designer.agent.md`](.github/agents/designer.agent.md) | Reads codebase, produces design artifact (no code writing) |
 | [`implementer.agent.md`](.github/agents/implementer.agent.md) | Builds one vertical slice end-to-end from a task file |
-| [`backend-engineer.agent.md`](.github/agents/backend-engineer.agent.md) | FastAPI specialist for backend slices |
-| [`frontend-engineer.agent.md`](.github/agents/frontend-engineer.agent.md) | React/TypeScript specialist for frontend slices |
-| [`backend-tester.agent.md`](.github/agents/backend-tester.agent.md) | pytest integration test specialist |
-| [`frontend-tester.agent.md`](.github/agents/frontend-tester.agent.md) | Vitest component test specialist |
-| [`code-reviewer.agent.md`](.github/agents/code-reviewer.agent.md) | Quality gate covering lint, types, test coverage, and readability |
+| [`backend-engineer.agent.md`](.github/agents/backend-engineer.agent.md) | FastAPI specialist |
+| [`frontend-engineer.agent.md`](.github/agents/frontend-engineer.agent.md) | React/TypeScript specialist |
+| [`backend-tester.agent.md`](.github/agents/backend-tester.agent.md) | pytest integration tests |
+| [`frontend-tester.agent.md`](.github/agents/frontend-tester.agent.md) | Vitest component tests |
+| [`code-reviewer.agent.md`](.github/agents/code-reviewer.agent.md) | Quality gate: lint, types, test coverage, readability |
 
 ### Copilot instructions in `.github/copilot-instructions.md`
 
-This file sets the ground rules for all agents: no over-engineering, no production infrastructure, keep the code readable, act as a coach. It also spells out what "next" means inside the multi-agent loop so agents don't drift.
+Ground rules for all agents: no over-engineering, no production infrastructure, readable code, coach-style guidance.
 
 ### Prompt and task files in `.github/prompts/`
 
-Every feature produces two kinds of files that stick around after the branch merges:
+Every feature produces two persistent files:
 
-- **Design artifacts** (`design-{feature}.prompt.md`) are written by the Designer. They serve as the single source of truth for what gets built: API shape, data model, UI spec, and how the work splits into slices.
-- **Task files** (`task-{slice}.prompt.md`) are written by the Orchestrator. One file per slice, each with ordered implementation steps, a list of files the agent owns, files that are off-limits, and the acceptance criteria.
+- **Design artifacts** (`design-{feature}.prompt.md`) — written by the Designer. Single source of truth: API shape, data model, UI spec, slice breakdown.
+- **Task files** (`task-{slice}.prompt.md`) — written by the Orchestrator. One per slice: implementation steps, files owned, files off-limits, acceptance criteria.
 
 ```
 .github/prompts/
@@ -68,7 +64,7 @@ Every feature produces two kinds of files that stick around after the branch mer
 
 ## The Multi-Agent Loop
 
-Each feature follows the same 9-step loop. The app grows one vertical slice at a time, and every step is traceable back to an artifact in this repo.
+9-step loop, one vertical slice per iteration, every step traceable to an artifact.
 
 ```
 User
@@ -98,8 +94,6 @@ User
 
 ## Docs
 
-The `docs/` folder tracks every decision and outcome as features land.
-
 | Doc | Purpose |
 |---|---|
 | [docs/workflow.md](docs/workflow.md) | End-to-end loop walkthrough with diagram |
@@ -110,8 +104,6 @@ The `docs/` folder tracks every decision and outcome as features land.
 ---
 
 ## Features Shipped
-
-Each row is a completed loop iteration.
 
 | Feature | Slices | Design artifact | Plan |
 |---|---|---|---|
@@ -131,7 +123,7 @@ Each row is a completed loop iteration.
 
 ## The Blog App
 
-The app is a simple blog built with FastAPI on the backend and React + Vite on the frontend, with in-memory persistence (no database). I kept it deliberately minimal so the agent workflow is the interesting part, not the app itself.
+FastAPI backend + React/Vite frontend, in-memory persistence. Kept minimal intentionally — the workflow is the point, not the app.
 
 ### Tech Stack
 

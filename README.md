@@ -193,3 +193,7 @@ multi-agentic-loop-lab/
 ├── merge-slice.sh
 └── stop.sh
 ```
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
